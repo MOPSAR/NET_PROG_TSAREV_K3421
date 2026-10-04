@@ -1,0 +1,46 @@
+---
+- name: Read lab objects from NetBox
+  ansible.builtin.uri:
+    url: "{{ netbox_url }}/api/{{ item }}/?limit=1000"
+    headers:
+      Authorization: "{{ netbox_authorization }}"
+    return_content: true
+  loop:
+    - dcim/sites
+    - dcim/manufacturers
+    - dcim/device-types
+    - dcim/device-roles
+    - dcim/platforms
+    - dcim/devices
+    - dcim/interfaces
+    - dcim/mac-addresses
+    - dcim/cables
+    - ipam/vrfs
+    - ipam/prefixes
+    - ipam/ip-addresses
+    - extras/custom-fields
+  register: netbox_objects
+  check_mode: false
+  changed_when: false
+  no_log: true
+
+- name: Check that every response fits the export page
+  ansible.builtin.assert:
+    that: item.json.next == None
+  loop: "{{ netbox_objects.results }}"
+  loop_control:
+    label: "{{ item.item }}"
+  no_log: true
+
+- name: Build export without HTTP headers or tokens
+  ansible.builtin.set_fact:
+    netbox_export: "{{ netbox_export | default({}) | combine({item.item: item.json.results}) }}"
+  loop: "{{ netbox_objects.results }}"
+  no_log: true
+
+- name: Save read-only data export even in check mode
+  ansible.builtin.copy:
+    content: "{{ netbox_export | to_nice_json }}\n"
+    dest: "{{ role_path }}/../../../netbox-export.json"
+    mode: '0644'
+  check_mode: false

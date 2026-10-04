@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net">
+  <diagram name="Lab2" id="lab2">
+    <mxGraphModel dx="1100" dy="650" grid="1" page="1" pageWidth="1100" pageHeight="650">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="azure" value="Azure: netprog-ansible&#10;Ubuntu 24.04 / Ansible&#10;20.25.48.31&#10;OpenVPN: 10.8.0.1/24" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#e8f1fe;strokeColor=#33516b;fontSize=17;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="350" y="50" width="380" height="130" />
+        </mxCell>
+        <mxCell id="chr1" value="CHR1: RouterOS 7.23.7&#10;VPN: 10.8.0.2/24&#10;ether2: 10.10.12.1/30&#10;Router ID / loopback: 10.255.0.1/32" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#e4f4ed;strokeColor=#33516b;fontSize=17;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="80" y="350" width="360" height="150" />
+        </mxCell>
+        <mxCell id="chr2" value="CHR2: RouterOS 7.23.7&#10;VPN: 10.8.0.3/24&#10;ether2: 10.10.12.2/30&#10;Router ID / loopback: 10.255.0.2/32" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#e4f4ed;strokeColor=#33516b;fontSize=17;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="660" y="350" width="360" height="150" />
+        </mxCell>
+        <mxCell id="vpn1" value="OpenVPN TCP/1194" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=none;strokeWidth=2;fontSize=15;" edge="1" parent="1" source="azure" target="chr1">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="vpn2" value="OpenVPN TCP/1194" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=none;strokeWidth=2;fontSize=15;" edge="1" parent="1" source="azure" target="chr2">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="ospf" value="OSPFv2 / area 0.0.0.0&#10;10.10.12.0/30 / ether2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=none;strokeWidth=2;fontSize=15;" edge="1" parent="1" source="chr1" target="chr2">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+      <mxCell id="ether2-note" value="ether2: связь между CHR1 и CHR2 через внутреннюю сеть VirtualBox" style="text;html=0;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=17;" vertex="1" parent="1"><mxGeometry x="70" y="535" width="960" height="30" as="geometry" /></mxCell><mxCell id="ether1-note" value="ether1: выход каждого маршрутизатора в интернет через NAT VirtualBox" style="text;html=0;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=17;" vertex="1" parent="1"><mxGeometry x="70" y="570" width="960" height="30" as="geometry" /></mxCell></root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

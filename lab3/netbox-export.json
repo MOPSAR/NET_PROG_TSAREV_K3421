@@ -1,0 +1,2609 @@
+{
+    "dcim/cables": [],
+    "dcim/device-roles": [
+        {
+            "_depth": 0,
+            "color": "2196f3",
+            "comments": "",
+            "config_template": null,
+            "created": "2026-09-29T20:21:19.468106Z",
+            "custom_fields": {},
+            "description": "",
+            "device_count": 2,
+            "display": "Lab router",
+            "display_url": "http://127.0.0.1:8000/dcim/device-roles/1/",
+            "id": 1,
+            "last_updated": "2026-09-29T20:23:48.716581Z",
+            "name": "Lab router",
+            "owner": null,
+            "parent": null,
+            "slug": "lab-router",
+            "tags": [],
+            "url": "http://127.0.0.1:8000/api/dcim/device-roles/1/",
+            "virtualmachine_count": 0,
+            "vm_role": true
+        }
+    ],
+    "dcim/device-types": [
+        {
+            "airflow": null,
+            "comments": "VirtualBox, 1 vCPU, 1024 MiB RAM; virtual router, no physical chassis.",
+            "console_port_template_count": 0,
+            "console_server_port_template_count": 0,
+            "cooling_intake_template_count": 0,
+            "cooling_method": null,
+            "cooling_outflow_template_count": 0,
+            "created": "2026-09-29T20:21:19.414936Z",
+            "custom_fields": {},
+            "default_platform": null,
+            "description": "",
+            "device_bay_template_count": 0,
+            "device_count": 2,
+            "display": "Cloud Hosted Router",
+            "display_url": "http://127.0.0.1:8000/dcim/device-types/1/",
+            "end_of_life": null,
+            "exclude_from_utilization": false,
+            "front_image": null,
+            "front_port_template_count": 0,
+            "id": 1,
+            "interface_template_count": 0,
+            "inventory_item_template_count": 0,
+            "is_full_depth": false,
+            "last_updated": "2026-09-29T20:23:48.576415Z",
+            "manufacturer": {
+                "description": "",
+                "display": "MikroTik",
+                "id": 1,
+                "name": "MikroTik",
+                "slug": "mikrotik",
+                "url": "http://127.0.0.1:8000/api/dcim/manufacturers/1/"
+            },
+            "model": "Cloud Hosted Router",
+            "module_bay_template_count": 0,
+            "owner": null,
+            "part_number": "",
+            "power_outlet_template_count": 0,
+            "power_port_template_count": 0,
+            "rear_image": null,
+            "rear_port_template_count": 0,
+            "slug": "chr",
+            "subdevice_role": null,
+            "tags": [],
+            "u_height": 0.0,
+            "url": "http://127.0.0.1:8000/api/dcim/device-types/1/",
+            "weight": null,
+            "weight_unit": null
+        }
+    ],
+    "dcim/devices": [
+        {
+            "airflow": null,
+            "asset_tag": null,
+            "cluster": null,
+            "comments": "1 vCPU; 1024 MiB RAM; OpenVPN to Azure; OSPF backbone area 0. Serial is populated by collect-serials.yml from CHR system-id.",
+            "config_context": {
+                "ansible_host": "172.20.30.1",
+                "ansible_port": 22,
+                "original_name": "CHR1"
+            },
+            "config_template": null,
+            "console_port_count": 0,
+            "console_server_port_count": 0,
+            "cooling_intake_count": 0,
+            "cooling_method": null,
+            "cooling_outflow_count": 0,
+            "created": "2026-09-29T20:21:20.060411Z",
+            "custom_fields": {
+                "observed_facts": {
+                    "ansible_net_all_ipv4_addresses": [
+                        "10.0.2.15",
+                        "10.8.0.2",
+                        "10.10.12.1",
+                        "10.255.0.1"
+                    ],
+                    "ansible_net_all_ipv6_addresses": [
+                        "::1",
+                        "fe80::a00:27ff:fef6:f24d",
+                        "fe80::a00:27ff:fea0:b6ba",
+                        "fe80::44ac:d62a:5256:dfef",
+                        "fe80::6c25:3aff:fe86:7410"
+                    ],
+                    "ansible_net_arch": "x86_64                     ",
+                    "ansible_net_bgp_instance": {},
+                    "ansible_net_bgp_peer": {
+                        "null": {}
+                    },
+                    "ansible_net_bgp_vpnv4_route": {
+                        "null": {}
+                    },
+                    "ansible_net_cpu_load": "1%                         ",
+                    "ansible_net_gather_subset": [
+                        "interfaces",
+                        "routing",
+                        "hardware",
+                        "default",
+                        "config"
+                    ],
+                    "ansible_net_hostname": "CHR1",
+                    "ansible_net_interfaces": {
+                        "ether1": {
+                            "actual-mtu": "1500",
+                            "default-name": "ether1",
+                            "ipv4": [
+                                {
+                                    "address": "10.0.2.15",
+                                    "subnet": "24"
+                                }
+                            ],
+                            "ipv6": [
+                                {
+                                    "address": "fe80::a00:27ff:fef6:f24d",
+                                    "subnet": "64"
+                                }
+                            ],
+                            "last-link-up-time": "2026-09-29",
+                            "link-downs": "0",
+                            "mac-address": "08:00:27:F6:F2:4D",
+                            "mtu": "1500",
+                            "name": "ether1",
+                            "type": "ether",
+                            "vrf": "main"
+                        },
+                        "ether2": {
+                            "actual-mtu": "1500",
+                            "default-name": "ether2",
+                            "ipv4": [
+                                {
+                                    "address": "10.10.12.1",
+                                    "subnet": "30"
+                                }
+                            ],
+                            "ipv6": [
+                                {
+                                    "address": "fe80::a00:27ff:fea0:b6ba",
+                                    "subnet": "64"
+                                }
+                            ],
+                            "last-link-up-time": "2026-09-29",
+                            "link-downs": "0",
+                            "mac-address": "08:00:27:A0:B6:BA",
+                            "mtu": "1500",
+                            "name": "ether2",
+                            "type": "ether",
+                            "vrf": "main"
+                        },
+                        "lo": {
+                            "actual-mtu": "65536",
+                            "ipv6": [
+                                {
+                                    "address": "::1",
+                                    "subnet": "128"
+                                }
+                            ],
+                            "last-link-up-time": "2026-09-29",
+                            "link-downs": "0",
+                            "mac-address": "00:00:00:00:00:00",
+                            "mtu": "65536",
+                            "name": "lo",
+                            "type": "loopback",
+                            "vrf": "main"
+                        },
+                        "lo-lab": {
+                            "actual-mtu": "1500",
+                            "ipv4": [
+                                {
+                                    "address": "10.255.0.1",
+                                    "subnet": "32"
+                                }
+                            ],
+                            "ipv6": [
+                                {
+                                    "address": "fe80::6c25:3aff:fe86:7410",
+                                    "subnet": "64"
+                                }
+                            ],
+                            "l2mtu": "65535",
+                            "last-link-up-time": "2026-09-29",
+                            "link-downs": "0",
+                            "mac-address": "6E:25:3A:86:74:10",
+                            "mtu": "auto",
+                            "name": "lo-lab",
+                            "type": "bridge",
+                            "vrf": "main"
+                        },
+                        "ovpn-azure": {
+                            "actual-mtu": "1500",
+                            "ipv4": [
+                                {
+                                    "address": "10.8.0.2",
+                                    "subnet": "24"
+                                }
+                            ],
+                            "ipv6": [
+                                {
+                                    "address": "fe80::44ac:d62a:5256:dfef",
+                                    "subnet": "64"
+                                }
+                            ],
+                            "last-link-down-time": "2026-09-29",
+                            "last-link-up-time": "2026-09-29",
+                            "link-downs": "1",
+                            "mac-address": "FE:23:E9:B0:89:7D",
+                            "mtu": "1500",
+                            "name": "ovpn-azure",
+                            "type": "ovpn-out",
+                            "vrf": "main"
+                        }
+                    },
+                    "ansible_net_memfree_mb": 796.0,
+                    "ansible_net_memtotal_mb": 1024.0,
+                    "ansible_net_model": null,
+                    "ansible_net_neighbors": [],
+                    "ansible_net_ospf_instance": {
+                        "lab2": {
+                            "name": "lab2",
+                            "router-id": "10.255.0.1",
+                            "version": "2",
+                            "vrf": "main"
+                        }
+                    },
+                    "ansible_net_ospf_neighbor": {
+                        "lab2": {
+                            "address": "10.10.12.2",
+                            "adjacency": "8m7s",
+                            "area": "backbone-lab2",
+                            "instance": "lab2",
+                            "interface": "ether2",
+                            "router-id": "10.255.0.2",
+                            "state": "Full",
+                            "state-changes": "5",
+                            "timeout": "34s"
+                        }
+                    },
+                    "ansible_net_route": {
+                        "main": {
+                            "distance": "110",
+                            "dst-address": "10.255.0.2/32",
+                            "gateway": "10.10.12.2",
+                            "immediate-gw": "10.10.12.2",
+                            "local-address": "10.255.0.1",
+                            "routing-table": "main",
+                            "scope": "20",
+                            "target-scope": "10",
+                            "vrf-interface": "ether1"
+                        }
+                    },
+                    "ansible_net_serialnum": null,
+                    "ansible_net_spacefree_mb": 69.1,
+                    "ansible_net_spacetotal_mb": 89.2,
+                    "ansible_net_uptime": "18m40s                     ",
+                    "ansible_net_version": "7.23.7 (long-term)         "
+                },
+                "serial_source": "CHR system-id (virtual identifier)",
+                "software_version": "7.23.7",
+                "virtualization": "Oracle VirtualBox 7.2.20"
+            },
+            "description": "NetProg-CHR1; desired configuration for laboratory 3",
+            "device_bay_count": 0,
+            "device_type": {
+                "description": "",
+                "device_count": 2,
+                "display": "Cloud Hosted Router",
+                "id": 1,
+                "manufacturer": {
+                    "description": "",
+                    "display": "MikroTik",
+                    "id": 1,
+                    "name": "MikroTik",
+                    "slug": "mikrotik",
+                    "url": "http://127.0.0.1:8000/api/dcim/manufacturers/1/"
+                },
+                "model": "Cloud Hosted Router",
+                "slug": "chr",
+                "url": "http://127.0.0.1:8000/api/dcim/device-types/1/"
+            },
+            "display": "CHR1",
+            "display_url": "http://127.0.0.1:8000/dcim/devices/1/",
+            "face": null,
+            "front_port_count": 0,
+            "id": 1,
+            "interface_count": 4,
+            "inventory_item_count": 0,
+            "last_updated": "2026-10-04T16:44:35.655027Z",
+            "latitude": null,
+            "local_context_data": {
+                "ansible_host": "172.20.30.1",
+                "ansible_port": 22,
+                "original_name": "CHR1"
+            },
+            "location": null,
+            "longitude": null,
+            "module_bay_count": 0,
+            "name": "CHR1",
+            "oob_ip": null,
+            "owner": null,
+            "parent_device": null,
+            "platform": {
+                "_depth": 0,
+                "description": "",
+                "device_count": 0,
+                "display": "RouterOS 7.23.7",
+                "id": 1,
+                "name": "RouterOS 7.23.7",
+                "slug": "routeros-7-23-7",
+                "url": "http://127.0.0.1:8000/api/dcim/platforms/1/",
+                "virtualmachine_count": 0
+            },
+            "position": null,
+            "power_outlet_count": 0,
+            "power_port_count": 0,
+            "primary_ip": {
+                "address": "10.8.0.2/24",
+                "description": "Azure VPN",
+                "display": "10.8.0.2/24",
+                "dns_name": "",
+                "family": {
+                    "label": "IPv4",
+                    "value": 4
+                },
+                "id": 2,
+                "nat_inside": null,
+                "nat_outside": [],
+                "url": "http://127.0.0.1:8000/api/ipam/ip-addresses/2/"
+            },
+            "primary_ip4": {
+                "address": "10.8.0.2/24",
+                "description": "Azure VPN",
+                "display": "10.8.0.2/24",
+                "dns_name": "",
+                "family": {
+                    "label": "IPv4",
+                    "value": 4
+                },
+                "id": 2,
+                "nat_inside": null,
+                "nat_outside": [],
+                "url": "http://127.0.0.1:8000/api/ipam/ip-addresses/2/"
+            },
+            "primary_ip6": null,
+            "rack": null,
+            "rear_port_count": 0,
+            "role": {
+                "_depth": 0,
+                "description": "",
+                "device_count": 0,
+                "display": "Lab router",
+                "id": 1,
+                "name": "Lab router",
+                "slug": "lab-router",
+                "url": "http://127.0.0.1:8000/api/dcim/device-roles/1/",
+                "virtualmachine_count": 0
+            },
+            "serial": "NyZSvhIIDhA",
+            "site": {
+                "description": "Local VirtualBox networking laboratory",
+                "display": "ITMO K3421 Lab",
+                "id": 1,
+                "name": "ITMO K3421 Lab",
+                "slug": "itmo-k3421",
+                "url": "http://127.0.0.1:8000/api/dcim/sites/1/"
+            },
+            "status": {
+                "label": "Active",
+                "value": "active"
+            },
+            "tags": [],
+            "tenant": null,
+            "url": "http://127.0.0.1:8000/api/dcim/devices/1/",
+            "vc_position": null,
+            "vc_priority": null,
+            "virtual_chassis": null
+        },
+        {
+            "airflow": null,
+            "asset_tag": null,
+            "cluster": null,
+            "comments": "1 vCPU; 1024 MiB RAM; OpenVPN to Azure; OSPF backbone area 0. Serial is populated by collect-serials.yml from CHR system-id.",
+            "config_context": {
+                "ansible_host": "172.20.30.2",
+                "ansible_port": 22,
+                "original_name": "CHR2"
+            },
+            "config_template": null,
+            "console_port_count": 0,
+            "console_server_port_count": 0,
+            "cooling_intake_count": 0,
+            "cooling_method": null,
+            "cooling_outflow_count": 0,
+            "created": "2026-09-29T20:21:21.877600Z",
+            "custom_fields": {
+                "observed_facts": {
+                    "ansible_net_all_ipv4_addresses": [
+                        "10.0.2.15",
+                        "10.8.0.3",
+                        "10.10.12.2",
+                        "10.255.0.2"
+                    ],
+                    "ansible_net_all_ipv6_addresses": [
+                        "::1",
+                        "fe80::a00:27ff:fea2:b888",
+                        "fe80::a00:27ff:fef8:142f",
+                        "fe80::b4da:8744:2668:7030",
+                        "fe80::847b:15ff:fe37:3b75"
+                    ],
+                    "ansible_net_arch": "x86_64                     ",
+                    "ansible_net_bgp_instance": {},
+                    "ansible_net_bgp_peer": {
+                        "null": {}
+                    },
+                    "ansible_net_bgp_vpnv4_route": {
+                        "null": {}
+                    },
+                    "ansible_net_cpu_load": "0%                         ",
+                    "ansible_net_gather_subset": [
+                        "hardware",
+                        "default",
+                        "config",
+                        "routing",
+                        "interfaces"
+                    ],
+                    "ansible_net_hostname": "CHR2",
+                    "ansible_net_interfaces": {
+                        "ether1": {
+                            "actual-mtu": "1500",
+                            "default-name": "ether1",
+                            "ipv4": [
+                                {
+                                    "address": "10.0.2.15",
+                                    "subnet": "24"
+                                }
+                            ],
+                            "ipv6": [
+                                {
+                                    "address": "fe80::a00:27ff:fea2:b888",
+                                    "subnet": "64"
+                                }
+                            ],
+                            "last-link-up-time": "2026-09-29",
+                            "link-downs": "0",
+                            "mac-address": "08:00:27:A2:B8:88",
+                            "mtu": "1500",
+                            "name": "ether1",
+                            "type": "ether",
+                            "vrf": "main"
+                        },
+                        "ether2": {
+                            "actual-mtu": "1500",
+                            "default-name": "ether2",
+                            "ipv4": [
+                                {
+                                    "address": "10.10.12.2",
+                                    "subnet": "30"
+                                }
+                            ],
+                            "ipv6": [
+                                {
+                                    "address": "fe80::a00:27ff:fef8:142f",
+                                    "subnet": "64"
+                                }
+                            ],
+                            "last-link-up-time": "2026-09-29",
+                            "link-downs": "0",
+                            "mac-address": "08:00:27:F8:14:2F",
+                            "mtu": "1500",
+                            "name": "ether2",
+                            "type": "ether",
+                            "vrf": "main"
+                        },
+                        "lo": {
+                            "actual-mtu": "65536",
+                            "ipv6": [
+                                {
+                                    "address": "::1",
+                                    "subnet": "128"
+                                }
+                            ],
+                            "last-link-up-time": "2026-09-29",
+                            "link-downs": "0",
+                            "mac-address": "00:00:00:00:00:00",
+                            "mtu": "65536",
+                            "name": "lo",
+                            "type": "loopback",
+                            "vrf": "main"
+                        },
+                        "lo-lab": {
+                            "actual-mtu": "1500",
+                            "ipv4": [
+                                {
+                                    "address": "10.255.0.2",
+                                    "subnet": "32"
+                                }
+                            ],
+                            "ipv6": [
+                                {
+                                    "address": "fe80::847b:15ff:fe37:3b75",
+                                    "subnet": "64"
+                                }
+                            ],
+                            "l2mtu": "65535",
+                            "last-link-up-time": "2026-09-29",
+                            "link-downs": "0",
+                            "mac-address": "86:7B:15:37:3B:75",
+                            "mtu": "auto",
+                            "name": "lo-lab",
+                            "type": "bridge",
+                            "vrf": "main"
+                        },
+                        "ovpn-azure": {
+                            "actual-mtu": "1500",
+                            "ipv4": [
+                                {
+                                    "address": "10.8.0.3",
+                                    "subnet": "24"
+                                }
+                            ],
+                            "ipv6": [
+                                {
+                                    "address": "fe80::b4da:8744:2668:7030",
+                                    "subnet": "64"
+                                }
+                            ],
+                            "last-link-up-time": "2026-09-29",
+                            "link-downs": "0",
+                            "mac-address": "FE:B1:31:93:4A:25",
+                            "mtu": "1500",
+                            "name": "ovpn-azure",
+                            "type": "ovpn-out",
+                            "vrf": "main"
+                        }
+                    },
+                    "ansible_net_memfree_mb": 792.7,
+                    "ansible_net_memtotal_mb": 1024.0,
+                    "ansible_net_model": null,
+                    "ansible_net_neighbors": [],
+                    "ansible_net_ospf_instance": {
+                        "lab2": {
+                            "name": "lab2",
+                            "router-id": "10.255.0.2",
+                            "version": "2",
+                            "vrf": "main"
+                        }
+                    },
+                    "ansible_net_ospf_neighbor": {
+                        "lab2": {
+                            "address": "10.10.12.1",
+                            "adjacency": "8m6s",
+                            "area": "backbone-lab2",
+                            "instance": "lab2",
+                            "interface": "ether2",
+                            "router-id": "10.255.0.1",
+                            "state": "Full",
+                            "state-changes": "6",
+                            "timeout": "34s"
+                        }
+                    },
+                    "ansible_net_route": {
+                        "main": {
+                            "distance": "0",
+                            "dst-address": "10.255.0.2/32",
+                            "gateway": "lo-lab",
+                            "immediate-gw": "lo-lab",
+                            "local-address": "10.255.0.2",
+                            "routing-table": "main",
+                            "scope": "10",
+                            "target-scope": "5",
+                            "vrf-interface": "ether1"
+                        }
+                    },
+                    "ansible_net_serialnum": null,
+                    "ansible_net_spacefree_mb": 69.2,
+                    "ansible_net_spacetotal_mb": 89.2,
+                    "ansible_net_uptime": "20m40s                     ",
+                    "ansible_net_version": "7.23.7 (long-term)         "
+                },
+                "serial_source": "CHR system-id (virtual identifier)",
+                "software_version": "7.23.7",
+                "virtualization": "Oracle VirtualBox 7.2.20"
+            },
+            "description": "NetProg-CHR2; desired configuration for laboratory 3",
+            "device_bay_count": 0,
+            "device_type": {
+                "description": "",
+                "device_count": 2,
+                "display": "Cloud Hosted Router",
+                "id": 1,
+                "manufacturer": {
+                    "description": "",
+                    "display": "MikroTik",
+                    "id": 1,
+                    "name": "MikroTik",
+                    "slug": "mikrotik",
+                    "url": "http://127.0.0.1:8000/api/dcim/manufacturers/1/"
+                },
+                "model": "Cloud Hosted Router",
+                "slug": "chr",
+                "url": "http://127.0.0.1:8000/api/dcim/device-types/1/"
+            },
+            "display": "CHR2",
+            "display_url": "http://127.0.0.1:8000/dcim/devices/2/",
+            "face": null,
+            "front_port_count": 0,
+            "id": 2,
+            "interface_count": 4,
+            "inventory_item_count": 0,
+            "last_updated": "2026-10-04T16:44:35.666647Z",
+            "latitude": null,
+            "local_context_data": {
+                "ansible_host": "172.20.30.2",
+                "ansible_port": 22,
+                "original_name": "CHR2"
+            },
+            "location": null,
+            "longitude": null,
+            "module_bay_count": 0,
+            "name": "CHR2",
+            "oob_ip": null,
+            "owner": null,
+            "parent_device": null,
+            "platform": {
+                "_depth": 0,
+                "description": "",
+                "device_count": 0,
+                "display": "RouterOS 7.23.7",
+                "id": 1,
+                "name": "RouterOS 7.23.7",
+                "slug": "routeros-7-23-7",
+                "url": "http://127.0.0.1:8000/api/dcim/platforms/1/",
+                "virtualmachine_count": 0
+            },
+            "position": null,
+            "power_outlet_count": 0,
+            "power_port_count": 0,
+            "primary_ip": {
+                "address": "10.8.0.3/24",
+                "description": "Azure VPN",
+                "display": "10.8.0.3/24",
+                "dns_name": "",
+                "family": {
+                    "label": "IPv4",
+                    "value": 4
+                },
+                "id": 7,
+                "nat_inside": null,
+                "nat_outside": [],
+                "url": "http://127.0.0.1:8000/api/ipam/ip-addresses/7/"
+            },
+            "primary_ip4": {
+                "address": "10.8.0.3/24",
+                "description": "Azure VPN",
+                "display": "10.8.0.3/24",
+                "dns_name": "",
+                "family": {
+                    "label": "IPv4",
+                    "value": 4
+                },
+                "id": 7,
+                "nat_inside": null,
+                "nat_outside": [],
+                "url": "http://127.0.0.1:8000/api/ipam/ip-addresses/7/"
+            },
+            "primary_ip6": null,
+            "rack": null,
+            "rear_port_count": 0,
+            "role": {
+                "_depth": 0,
+                "description": "",
+                "device_count": 0,
+                "display": "Lab router",
+                "id": 1,
+                "name": "Lab router",
+                "slug": "lab-router",
+                "url": "http://127.0.0.1:8000/api/dcim/device-roles/1/",
+                "virtualmachine_count": 0
+            },
+            "serial": "wIm+sa2iVrA",
+            "site": {
+                "description": "Local VirtualBox networking laboratory",
+                "display": "ITMO K3421 Lab",
+                "id": 1,
+                "name": "ITMO K3421 Lab",
+                "slug": "itmo-k3421",
+                "url": "http://127.0.0.1:8000/api/dcim/sites/1/"
+            },
+            "status": {
+                "label": "Active",
+                "value": "active"
+            },
+            "tags": [],
+            "tenant": null,
+            "url": "http://127.0.0.1:8000/api/dcim/devices/2/",
+            "vc_position": null,
+            "vc_priority": null,
+            "virtual_chassis": null
+        }
+    ],
+    "dcim/interfaces": [
+        {
+            "_occupied": false,
+            "bridge": null,
+            "bridge_interfaces": [],
+            "cable": null,
+            "cable_end": null,
+            "channel_id": null,
+            "channels": null,
+            "connected_endpoints": null,
+            "connected_endpoints_reachable": false,
+            "connected_endpoints_type": null,
+            "count_fhrp_groups": 0,
+            "count_ipaddresses": 1,
+            "created": "2026-09-29T20:21:20.329514Z",
+            "custom_fields": {},
+            "description": "VirtualBox NAT DHCP 10.0.2.15/24 (separate NAT per VM)",
+            "device": {
+                "description": "NetProg-CHR1; desired configuration for laboratory 3",
+                "display": "CHR1",
+                "id": 1,
+                "name": "CHR1",
+                "url": "http://127.0.0.1:8000/api/dcim/devices/1/"
+            },
+            "display": "ether1",
+            "display_url": "http://127.0.0.1:8000/dcim/interfaces/1/",
+            "duplex": null,
+            "enabled": true,
+            "id": 1,
+            "l2vpn_termination": null,
+            "label": "",
+            "lag": null,
+            "last_updated": "2026-09-29T20:23:51.120258Z",
+            "link_peers": [],
+            "link_peers_type": null,
+            "mac_address": "08:00:27:F6:F2:4D",
+            "mac_addresses": [
+                {
+                    "description": "",
+                    "display": "08:00:27:F6:F2:4D",
+                    "id": 1,
+                    "mac_address": "08:00:27:F6:F2:4D",
+                    "url": "http://127.0.0.1:8000/api/dcim/mac-addresses/1/"
+                }
+            ],
+            "mark_connected": false,
+            "mgmt_only": false,
+            "mode": null,
+            "module": null,
+            "mtu": 1500,
+            "name": "ether1",
+            "owner": null,
+            "parent": null,
+            "poe_mode": null,
+            "poe_type": null,
+            "primary_mac_address": {
+                "description": "",
+                "display": "08:00:27:F6:F2:4D",
+                "id": 1,
+                "mac_address": "08:00:27:F6:F2:4D",
+                "url": "http://127.0.0.1:8000/api/dcim/mac-addresses/1/"
+            },
+            "qinq_svlan": null,
+            "rf_channel": null,
+            "rf_channel_frequency": null,
+            "rf_channel_width": null,
+            "rf_role": null,
+            "speed": null,
+            "tagged_vlans": [],
+            "tags": [],
+            "tx_power": null,
+            "type": {
+                "label": "1000BASE-T (1GE)",
+                "value": "1000base-t"
+            },
+            "untagged_vlan": null,
+            "url": "http://127.0.0.1:8000/api/dcim/interfaces/1/",
+            "vdcs": [],
+            "vlan_translation_policy": null,
+            "vrf": null,
+            "wireless_lans": [],
+            "wireless_link": null,
+            "wwn": null
+        },
+        {
+            "_occupied": false,
+            "bridge": null,
+            "bridge_interfaces": [],
+            "cable": null,
+            "cable_end": null,
+            "channel_id": null,
+            "channels": null,
+            "connected_endpoints": null,
+            "connected_endpoints_reachable": false,
+            "connected_endpoints_type": null,
+            "count_fhrp_groups": 0,
+            "count_ipaddresses": 2,
+            "created": "2026-09-29T20:21:20.628531Z",
+            "custom_fields": {},
+            "description": "Shared intnet netprog-ospf",
+            "device": {
+                "description": "NetProg-CHR1; desired configuration for laboratory 3",
+                "display": "CHR1",
+                "id": 1,
+                "name": "CHR1",
+                "url": "http://127.0.0.1:8000/api/dcim/devices/1/"
+            },
+            "display": "ether2",
+            "display_url": "http://127.0.0.1:8000/dcim/interfaces/2/",
+            "duplex": null,
+            "enabled": true,
+            "id": 2,
+            "l2vpn_termination": null,
+            "label": "",
+            "lag": null,
+            "last_updated": "2026-09-29T20:23:51.627536Z",
+            "link_peers": [],
+            "link_peers_type": null,
+            "mac_address": "08:00:27:A0:B6:BA",
+            "mac_addresses": [
+                {
+                    "description": "",
+                    "display": "08:00:27:A0:B6:BA",
+                    "id": 2,
+                    "mac_address": "08:00:27:A0:B6:BA",
+                    "url": "http://127.0.0.1:8000/api/dcim/mac-addresses/2/"
+                }
+            ],
+            "mark_connected": false,
+            "mgmt_only": false,
+            "mode": null,
+            "module": null,
+            "mtu": 1500,
+            "name": "ether2",
+            "owner": null,
+            "parent": null,
+            "poe_mode": null,
+            "poe_type": null,
+            "primary_mac_address": {
+                "description": "",
+                "display": "08:00:27:A0:B6:BA",
+                "id": 2,
+                "mac_address": "08:00:27:A0:B6:BA",
+                "url": "http://127.0.0.1:8000/api/dcim/mac-addresses/2/"
+            },
+            "qinq_svlan": null,
+            "rf_channel": null,
+            "rf_channel_frequency": null,
+            "rf_channel_width": null,
+            "rf_role": null,
+            "speed": null,
+            "tagged_vlans": [],
+            "tags": [],
+            "tx_power": null,
+            "type": {
+                "label": "1000BASE-T (1GE)",
+                "value": "1000base-t"
+            },
+            "untagged_vlan": null,
+            "url": "http://127.0.0.1:8000/api/dcim/interfaces/2/",
+            "vdcs": [],
+            "vlan_translation_policy": null,
+            "vrf": null,
+            "wireless_lans": [],
+            "wireless_link": null,
+            "wwn": null
+        },
+        {
+            "_occupied": false,
+            "bridge": null,
+            "bridge_interfaces": [],
+            "cable": null,
+            "cable_end": null,
+            "channel_id": null,
+            "channels": null,
+            "connected_endpoints": null,
+            "connected_endpoints_reachable": false,
+            "connected_endpoints_type": null,
+            "count_fhrp_groups": 0,
+            "count_ipaddresses": 1,
+            "created": "2026-09-29T20:21:20.877507Z",
+            "custom_fields": {},
+            "description": "OSPF router ID loopback",
+            "device": {
+                "description": "NetProg-CHR1; desired configuration for laboratory 3",
+                "display": "CHR1",
+                "id": 1,
+                "name": "CHR1",
+                "url": "http://127.0.0.1:8000/api/dcim/devices/1/"
+            },
+            "display": "lo-lab",
+            "display_url": "http://127.0.0.1:8000/dcim/interfaces/3/",
+            "duplex": null,
+            "enabled": true,
+            "id": 3,
+            "l2vpn_termination": null,
+            "label": "",
+            "lag": null,
+            "last_updated": "2026-09-29T20:23:52.378657Z",
+            "link_peers": [],
+            "link_peers_type": null,
+            "mac_address": "6E:25:3A:86:74:10",
+            "mac_addresses": [
+                {
+                    "description": "",
+                    "display": "6E:25:3A:86:74:10",
+                    "id": 3,
+                    "mac_address": "6E:25:3A:86:74:10",
+                    "url": "http://127.0.0.1:8000/api/dcim/mac-addresses/3/"
+                }
+            ],
+            "mark_connected": false,
+            "mgmt_only": false,
+            "mode": null,
+            "module": null,
+            "mtu": 1500,
+            "name": "lo-lab",
+            "owner": null,
+            "parent": null,
+            "poe_mode": null,
+            "poe_type": null,
+            "primary_mac_address": {
+                "description": "",
+                "display": "6E:25:3A:86:74:10",
+                "id": 3,
+                "mac_address": "6E:25:3A:86:74:10",
+                "url": "http://127.0.0.1:8000/api/dcim/mac-addresses/3/"
+            },
+            "qinq_svlan": null,
+            "rf_channel": null,
+            "rf_channel_frequency": null,
+            "rf_channel_width": null,
+            "rf_role": null,
+            "speed": null,
+            "tagged_vlans": [],
+            "tags": [],
+            "tx_power": null,
+            "type": {
+                "label": "Bridge",
+                "value": "bridge"
+            },
+            "untagged_vlan": null,
+            "url": "http://127.0.0.1:8000/api/dcim/interfaces/3/",
+            "vdcs": [],
+            "vlan_translation_policy": null,
+            "vrf": null,
+            "wireless_lans": [],
+            "wireless_link": null,
+            "wwn": null
+        },
+        {
+            "_occupied": false,
+            "bridge": null,
+            "bridge_interfaces": [],
+            "cable": null,
+            "cable_end": null,
+            "channel_id": null,
+            "channels": null,
+            "connected_endpoints": null,
+            "connected_endpoints_reachable": false,
+            "connected_endpoints_type": null,
+            "count_fhrp_groups": 0,
+            "count_ipaddresses": 1,
+            "created": "2026-09-29T20:21:21.113542Z",
+            "custom_fields": {},
+            "description": "OpenVPN client to 20.25.48.31",
+            "device": {
+                "description": "NetProg-CHR1; desired configuration for laboratory 3",
+                "display": "CHR1",
+                "id": 1,
+                "name": "CHR1",
+                "url": "http://127.0.0.1:8000/api/dcim/devices/1/"
+            },
+            "display": "ovpn-azure",
+            "display_url": "http://127.0.0.1:8000/dcim/interfaces/4/",
+            "duplex": null,
+            "enabled": true,
+            "id": 4,
+            "l2vpn_termination": null,
+            "label": "",
+            "lag": null,
+            "last_updated": "2026-09-29T20:23:52.860728Z",
+            "link_peers": [],
+            "link_peers_type": null,
+            "mac_address": "FE:23:E9:B0:89:7D",
+            "mac_addresses": [
+                {
+                    "description": "",
+                    "display": "FE:23:E9:B0:89:7D",
+                    "id": 4,
+                    "mac_address": "FE:23:E9:B0:89:7D",
+                    "url": "http://127.0.0.1:8000/api/dcim/mac-addresses/4/"
+                }
+            ],
+            "mark_connected": false,
+            "mgmt_only": false,
+            "mode": null,
+            "module": null,
+            "mtu": 1500,
+            "name": "ovpn-azure",
+            "owner": null,
+            "parent": null,
+            "poe_mode": null,
+            "poe_type": null,
+            "primary_mac_address": {
+                "description": "",
+                "display": "FE:23:E9:B0:89:7D",
+                "id": 4,
+                "mac_address": "FE:23:E9:B0:89:7D",
+                "url": "http://127.0.0.1:8000/api/dcim/mac-addresses/4/"
+            },
+            "qinq_svlan": null,
+            "rf_channel": null,
+            "rf_channel_frequency": null,
+            "rf_channel_width": null,
+            "rf_role": null,
+            "speed": null,
+            "tagged_vlans": [],
+            "tags": [],
+            "tx_power": null,
+            "type": {
+                "label": "Virtual",
+                "value": "virtual"
+            },
+            "untagged_vlan": null,
+            "url": "http://127.0.0.1:8000/api/dcim/interfaces/4/",
+            "vdcs": [],
+            "vlan_translation_policy": null,
+            "vrf": null,
+            "wireless_lans": [],
+            "wireless_link": null,
+            "wwn": null
+        },
+        {
+            "_occupied": false,
+            "bridge": null,
+            "bridge_interfaces": [],
+            "cable": null,
+            "cable_end": null,
+            "channel_id": null,
+            "channels": null,
+            "connected_endpoints": null,
+            "connected_endpoints_reachable": false,
+            "connected_endpoints_type": null,
+            "count_fhrp_groups": 0,
+            "count_ipaddresses": 1,
+            "created": "2026-09-29T20:21:22.087739Z",
+            "custom_fields": {},
+            "description": "VirtualBox NAT DHCP 10.0.2.15/24 (separate NAT per VM)",
+            "device": {
+                "description": "NetProg-CHR2; desired configuration for laboratory 3",
+                "display": "CHR2",
+                "id": 2,
+                "name": "CHR2",
+                "url": "http://127.0.0.1:8000/api/dcim/devices/2/"
+            },
+            "display": "ether1",
+            "display_url": "http://127.0.0.1:8000/dcim/interfaces/5/",
+            "duplex": null,
+            "enabled": true,
+            "id": 5,
+            "l2vpn_termination": null,
+            "label": "",
+            "lag": null,
+            "last_updated": "2026-09-29T20:23:55.340741Z",
+            "link_peers": [],
+            "link_peers_type": null,
+            "mac_address": "08:00:27:A2:B8:88",
+            "mac_addresses": [
+                {
+                    "description": "",
+                    "display": "08:00:27:A2:B8:88",
+                    "id": 5,
+                    "mac_address": "08:00:27:A2:B8:88",
+                    "url": "http://127.0.0.1:8000/api/dcim/mac-addresses/5/"
+                }
+            ],
+            "mark_connected": false,
+            "mgmt_only": false,
+            "mode": null,
+            "module": null,
+            "mtu": 1500,
+            "name": "ether1",
+            "owner": null,
+            "parent": null,
+            "poe_mode": null,
+            "poe_type": null,
+            "primary_mac_address": {
+                "description": "",
+                "display": "08:00:27:A2:B8:88",
+                "id": 5,
+                "mac_address": "08:00:27:A2:B8:88",
+                "url": "http://127.0.0.1:8000/api/dcim/mac-addresses/5/"
+            },
+            "qinq_svlan": null,
+            "rf_channel": null,
+            "rf_channel_frequency": null,
+            "rf_channel_width": null,
+            "rf_role": null,
+            "speed": null,
+            "tagged_vlans": [],
+            "tags": [],
+            "tx_power": null,
+            "type": {
+                "label": "1000BASE-T (1GE)",
+                "value": "1000base-t"
+            },
+            "untagged_vlan": null,
+            "url": "http://127.0.0.1:8000/api/dcim/interfaces/5/",
+            "vdcs": [],
+            "vlan_translation_policy": null,
+            "vrf": null,
+            "wireless_lans": [],
+            "wireless_link": null,
+            "wwn": null
+        },
+        {
+            "_occupied": false,
+            "bridge": null,
+            "bridge_interfaces": [],
+            "cable": null,
+            "cable_end": null,
+            "channel_id": null,
+            "channels": null,
+            "connected_endpoints": null,
+            "connected_endpoints_reachable": false,
+            "connected_endpoints_type": null,
+            "count_fhrp_groups": 0,
+            "count_ipaddresses": 2,
+            "created": "2026-09-29T20:21:22.296894Z",
+            "custom_fields": {},
+            "description": "Shared intnet netprog-ospf",
+            "device": {
+                "description": "NetProg-CHR2; desired configuration for laboratory 3",
+                "display": "CHR2",
+                "id": 2,
+                "name": "CHR2",
+                "url": "http://127.0.0.1:8000/api/dcim/devices/2/"
+            },
+            "display": "ether2",
+            "display_url": "http://127.0.0.1:8000/dcim/interfaces/6/",
+            "duplex": null,
+            "enabled": true,
+            "id": 6,
+            "l2vpn_termination": null,
+            "label": "",
+            "lag": null,
+            "last_updated": "2026-09-29T20:23:55.891450Z",
+            "link_peers": [],
+            "link_peers_type": null,
+            "mac_address": "08:00:27:F8:14:2F",
+            "mac_addresses": [
+                {
+                    "description": "",
+                    "display": "08:00:27:F8:14:2F",
+                    "id": 6,
+                    "mac_address": "08:00:27:F8:14:2F",
+                    "url": "http://127.0.0.1:8000/api/dcim/mac-addresses/6/"
+                }
+            ],
+            "mark_connected": false,
+            "mgmt_only": false,
+            "mode": null,
+            "module": null,
+            "mtu": 1500,
+            "name": "ether2",
+            "owner": null,
+            "parent": null,
+            "poe_mode": null,
+            "poe_type": null,
+            "primary_mac_address": {
+                "description": "",
+                "display": "08:00:27:F8:14:2F",
+                "id": 6,
+                "mac_address": "08:00:27:F8:14:2F",
+                "url": "http://127.0.0.1:8000/api/dcim/mac-addresses/6/"
+            },
+            "qinq_svlan": null,
+            "rf_channel": null,
+            "rf_channel_frequency": null,
+            "rf_channel_width": null,
+            "rf_role": null,
+            "speed": null,
+            "tagged_vlans": [],
+            "tags": [],
+            "tx_power": null,
+            "type": {
+                "label": "1000BASE-T (1GE)",
+                "value": "1000base-t"
+            },
+            "untagged_vlan": null,
+            "url": "http://127.0.0.1:8000/api/dcim/interfaces/6/",
+            "vdcs": [],
+            "vlan_translation_policy": null,
+            "vrf": null,
+            "wireless_lans": [],
+            "wireless_link": null,
+            "wwn": null
+        },
+        {
+            "_occupied": false,
+            "bridge": null,
+            "bridge_interfaces": [],
+            "cable": null,
+            "cable_end": null,
+            "channel_id": null,
+            "channels": null,
+            "connected_endpoints": null,
+            "connected_endpoints_reachable": false,
+            "connected_endpoints_type": null,
+            "count_fhrp_groups": 0,
+            "count_ipaddresses": 1,
+            "created": "2026-09-29T20:21:22.593352Z",
+            "custom_fields": {},
+            "description": "OSPF router ID loopback",
+            "device": {
+                "description": "NetProg-CHR2; desired configuration for laboratory 3",
+                "display": "CHR2",
+                "id": 2,
+                "name": "CHR2",
+                "url": "http://127.0.0.1:8000/api/dcim/devices/2/"
+            },
+            "display": "lo-lab",
+            "display_url": "http://127.0.0.1:8000/dcim/interfaces/7/",
+            "duplex": null,
+            "enabled": true,
+            "id": 7,
+            "l2vpn_termination": null,
+            "label": "",
+            "lag": null,
+            "last_updated": "2026-09-29T20:23:56.366100Z",
+            "link_peers": [],
+            "link_peers_type": null,
+            "mac_address": "86:7B:15:37:3B:75",
+            "mac_addresses": [
+                {
+                    "description": "",
+                    "display": "86:7B:15:37:3B:75",
+                    "id": 7,
+                    "mac_address": "86:7B:15:37:3B:75",
+                    "url": "http://127.0.0.1:8000/api/dcim/mac-addresses/7/"
+                }
+            ],
+            "mark_connected": false,
+            "mgmt_only": false,
+            "mode": null,
+            "module": null,
+            "mtu": 1500,
+            "name": "lo-lab",
+            "owner": null,
+            "parent": null,
+            "poe_mode": null,
+            "poe_type": null,
+            "primary_mac_address": {
+                "description": "",
+                "display": "86:7B:15:37:3B:75",
+                "id": 7,
+                "mac_address": "86:7B:15:37:3B:75",
+                "url": "http://127.0.0.1:8000/api/dcim/mac-addresses/7/"
+            },
+            "qinq_svlan": null,
+            "rf_channel": null,
+            "rf_channel_frequency": null,
+            "rf_channel_width": null,
+            "rf_role": null,
+            "speed": null,
+            "tagged_vlans": [],
+            "tags": [],
+            "tx_power": null,
+            "type": {
+                "label": "Bridge",
+                "value": "bridge"
+            },
+            "untagged_vlan": null,
+            "url": "http://127.0.0.1:8000/api/dcim/interfaces/7/",
+            "vdcs": [],
+            "vlan_translation_policy": null,
+            "vrf": null,
+            "wireless_lans": [],
+            "wireless_link": null,
+            "wwn": null
+        },
+        {
+            "_occupied": false,
+            "bridge": null,
+            "bridge_interfaces": [],
+            "cable": null,
+            "cable_end": null,
+            "channel_id": null,
+            "channels": null,
+            "connected_endpoints": null,
+            "connected_endpoints_reachable": false,
+            "connected_endpoints_type": null,
+            "count_fhrp_groups": 0,
+            "count_ipaddresses": 1,
+            "created": "2026-09-29T20:21:22.873914Z",
+            "custom_fields": {},
+            "description": "OpenVPN client to 20.25.48.31",
+            "device": {
+                "description": "NetProg-CHR2; desired configuration for laboratory 3",
+                "display": "CHR2",
+                "id": 2,
+                "name": "CHR2",
+                "url": "http://127.0.0.1:8000/api/dcim/devices/2/"
+            },
+            "display": "ovpn-azure",
+            "display_url": "http://127.0.0.1:8000/dcim/interfaces/8/",
+            "duplex": null,
+            "enabled": true,
+            "id": 8,
+            "l2vpn_termination": null,
+            "label": "",
+            "lag": null,
+            "last_updated": "2026-09-29T20:23:56.954420Z",
+            "link_peers": [],
+            "link_peers_type": null,
+            "mac_address": "FE:B1:31:93:4A:25",
+            "mac_addresses": [
+                {
+                    "description": "",
+                    "display": "FE:B1:31:93:4A:25",
+                    "id": 8,
+                    "mac_address": "FE:B1:31:93:4A:25",
+                    "url": "http://127.0.0.1:8000/api/dcim/mac-addresses/8/"
+                }
+            ],
+            "mark_connected": false,
+            "mgmt_only": false,
+            "mode": null,
+            "module": null,
+            "mtu": 1500,
+            "name": "ovpn-azure",
+            "owner": null,
+            "parent": null,
+            "poe_mode": null,
+            "poe_type": null,
+            "primary_mac_address": {
+                "description": "",
+                "display": "FE:B1:31:93:4A:25",
+                "id": 8,
+                "mac_address": "FE:B1:31:93:4A:25",
+                "url": "http://127.0.0.1:8000/api/dcim/mac-addresses/8/"
+            },
+            "qinq_svlan": null,
+            "rf_channel": null,
+            "rf_channel_frequency": null,
+            "rf_channel_width": null,
+            "rf_role": null,
+            "speed": null,
+            "tagged_vlans": [],
+            "tags": [],
+            "tx_power": null,
+            "type": {
+                "label": "Virtual",
+                "value": "virtual"
+            },
+            "untagged_vlan": null,
+            "url": "http://127.0.0.1:8000/api/dcim/interfaces/8/",
+            "vdcs": [],
+            "vlan_translation_policy": null,
+            "vrf": null,
+            "wireless_lans": [],
+            "wireless_link": null,
+            "wwn": null
+        }
+    ],
+    "dcim/mac-addresses": [
+        {
+            "assigned_object": {
+                "_occupied": false,
+                "cable": null,
+                "description": "Shared intnet netprog-ospf",
+                "device": {
+                    "description": "NetProg-CHR1; desired configuration for laboratory 3",
+                    "display": "CHR1",
+                    "id": 1,
+                    "name": "CHR1",
+                    "url": "http://127.0.0.1:8000/api/dcim/devices/1/"
+                },
+                "display": "ether2",
+                "id": 2,
+                "name": "ether2",
+                "url": "http://127.0.0.1:8000/api/dcim/interfaces/2/"
+            },
+            "assigned_object_id": 2,
+            "assigned_object_type": "dcim.interface",
+            "comments": "",
+            "created": "2026-09-29T20:21:20.707179Z",
+            "custom_fields": {},
+            "description": "",
+            "display": "08:00:27:A0:B6:BA",
+            "display_url": "http://127.0.0.1:8000/dcim/mac-addresses/2/",
+            "id": 2,
+            "is_primary": true,
+            "last_updated": "2026-09-29T20:23:51.493671Z",
+            "mac_address": "08:00:27:A0:B6:BA",
+            "owner": null,
+            "tags": [],
+            "url": "http://127.0.0.1:8000/api/dcim/mac-addresses/2/"
+        },
+        {
+            "assigned_object": {
+                "_occupied": false,
+                "cable": null,
+                "description": "VirtualBox NAT DHCP 10.0.2.15/24 (separate NAT per VM)",
+                "device": {
+                    "description": "NetProg-CHR2; desired configuration for laboratory 3",
+                    "display": "CHR2",
+                    "id": 2,
+                    "name": "CHR2",
+                    "url": "http://127.0.0.1:8000/api/dcim/devices/2/"
+                },
+                "display": "ether1",
+                "id": 5,
+                "name": "ether1",
+                "url": "http://127.0.0.1:8000/api/dcim/interfaces/5/"
+            },
+            "assigned_object_id": 5,
+            "assigned_object_type": "dcim.interface",
+            "comments": "",
+            "created": "2026-09-29T20:21:22.144190Z",
+            "custom_fields": {},
+            "description": "",
+            "display": "08:00:27:A2:B8:88",
+            "display_url": "http://127.0.0.1:8000/dcim/mac-addresses/5/",
+            "id": 5,
+            "is_primary": true,
+            "last_updated": "2026-09-29T20:23:55.209006Z",
+            "mac_address": "08:00:27:A2:B8:88",
+            "owner": null,
+            "tags": [],
+            "url": "http://127.0.0.1:8000/api/dcim/mac-addresses/5/"
+        },
+        {
+            "assigned_object": {
+                "_occupied": false,
+                "cable": null,
+                "description": "VirtualBox NAT DHCP 10.0.2.15/24 (separate NAT per VM)",
+                "device": {
+                    "description": "NetProg-CHR1; desired configuration for laboratory 3",
+                    "display": "CHR1",
+                    "id": 1,
+                    "name": "CHR1",
+                    "url": "http://127.0.0.1:8000/api/dcim/devices/1/"
+                },
+                "display": "ether1",
+                "id": 1,
+                "name": "ether1",
+                "url": "http://127.0.0.1:8000/api/dcim/interfaces/1/"
+            },
+            "assigned_object_id": 1,
+            "assigned_object_type": "dcim.interface",
+            "comments": "",
+            "created": "2026-09-29T20:21:20.400422Z",
+            "custom_fields": {},
+            "description": "",
+            "display": "08:00:27:F6:F2:4D",
+            "display_url": "http://127.0.0.1:8000/dcim/mac-addresses/1/",
+            "id": 1,
+            "is_primary": true,
+            "last_updated": "2026-09-29T20:23:50.921543Z",
+            "mac_address": "08:00:27:F6:F2:4D",
+            "owner": null,
+            "tags": [],
+            "url": "http://127.0.0.1:8000/api/dcim/mac-addresses/1/"
+        },
+        {
+            "assigned_object": {
+                "_occupied": false,
+                "cable": null,
+                "description": "Shared intnet netprog-ospf",
+                "device": {
+                    "description": "NetProg-CHR2; desired configuration for laboratory 3",
+                    "display": "CHR2",
+                    "id": 2,
+                    "name": "CHR2",
+                    "url": "http://127.0.0.1:8000/api/dcim/devices/2/"
+                },
+                "display": "ether2",
+                "id": 6,
+                "name": "ether2",
+                "url": "http://127.0.0.1:8000/api/dcim/interfaces/6/"
+            },
+            "assigned_object_id": 6,
+            "assigned_object_type": "dcim.interface",
+            "comments": "",
+            "created": "2026-09-29T20:21:22.350024Z",
+            "custom_fields": {},
+            "description": "",
+            "display": "08:00:27:F8:14:2F",
+            "display_url": "http://127.0.0.1:8000/dcim/mac-addresses/6/",
+            "id": 6,
+            "is_primary": true,
+            "last_updated": "2026-09-29T20:23:55.762227Z",
+            "mac_address": "08:00:27:F8:14:2F",
+            "owner": null,
+            "tags": [],
+            "url": "http://127.0.0.1:8000/api/dcim/mac-addresses/6/"
+        },
+        {
+            "assigned_object": {
+                "_occupied": false,
+                "cable": null,
+                "description": "OSPF router ID loopback",
+                "device": {
+                    "description": "NetProg-CHR1; desired configuration for laboratory 3",
+                    "display": "CHR1",
+                    "id": 1,
+                    "name": "CHR1",
+                    "url": "http://127.0.0.1:8000/api/dcim/devices/1/"
+                },
+                "display": "lo-lab",
+                "id": 3,
+                "name": "lo-lab",
+                "url": "http://127.0.0.1:8000/api/dcim/interfaces/3/"
+            },
+            "assigned_object_id": 3,
+            "assigned_object_type": "dcim.interface",
+            "comments": "",
+            "created": "2026-09-29T20:21:20.938302Z",
+            "custom_fields": {},
+            "description": "",
+            "display": "6E:25:3A:86:74:10",
+            "display_url": "http://127.0.0.1:8000/dcim/mac-addresses/3/",
+            "id": 3,
+            "is_primary": true,
+            "last_updated": "2026-09-29T20:23:52.213428Z",
+            "mac_address": "6E:25:3A:86:74:10",
+            "owner": null,
+            "tags": [],
+            "url": "http://127.0.0.1:8000/api/dcim/mac-addresses/3/"
+        },
+        {
+            "assigned_object": {
+                "_occupied": false,
+                "cable": null,
+                "description": "OSPF router ID loopback",
+                "device": {
+                    "description": "NetProg-CHR2; desired configuration for laboratory 3",
+                    "display": "CHR2",
+                    "id": 2,
+                    "name": "CHR2",
+                    "url": "http://127.0.0.1:8000/api/dcim/devices/2/"
+                },
+                "display": "lo-lab",
+                "id": 7,
+                "name": "lo-lab",
+                "url": "http://127.0.0.1:8000/api/dcim/interfaces/7/"
+            },
+            "assigned_object_id": 7,
+            "assigned_object_type": "dcim.interface",
+            "comments": "",
+            "created": "2026-09-29T20:21:22.709261Z",
+            "custom_fields": {},
+            "description": "",
+            "display": "86:7B:15:37:3B:75",
+            "display_url": "http://127.0.0.1:8000/dcim/mac-addresses/7/",
+            "id": 7,
+            "is_primary": true,
+            "last_updated": "2026-09-29T20:23:56.239165Z",
+            "mac_address": "86:7B:15:37:3B:75",
+            "owner": null,
+            "tags": [],
+            "url": "http://127.0.0.1:8000/api/dcim/mac-addresses/7/"
+        },
+        {
+            "assigned_object": {
+                "_occupied": false,
+                "cable": null,
+                "description": "OpenVPN client to 20.25.48.31",
+                "device": {
+                    "description": "NetProg-CHR1; desired configuration for laboratory 3",
+                    "display": "CHR1",
+                    "id": 1,
+                    "name": "CHR1",
+                    "url": "http://127.0.0.1:8000/api/dcim/devices/1/"
+                },
+                "display": "ovpn-azure",
+                "id": 4,
+                "name": "ovpn-azure",
+                "url": "http://127.0.0.1:8000/api/dcim/interfaces/4/"
+            },
+            "assigned_object_id": 4,
+            "assigned_object_type": "dcim.interface",
+            "comments": "",
+            "created": "2026-09-29T20:21:21.175419Z",
+            "custom_fields": {},
+            "description": "",
+            "display": "FE:23:E9:B0:89:7D",
+            "display_url": "http://127.0.0.1:8000/dcim/mac-addresses/4/",
+            "id": 4,
+            "is_primary": true,
+            "last_updated": "2026-09-29T20:23:52.726011Z",
+            "mac_address": "FE:23:E9:B0:89:7D",
+            "owner": null,
+            "tags": [],
+            "url": "http://127.0.0.1:8000/api/dcim/mac-addresses/4/"
+        },
+        {
+            "assigned_object": {
+                "_occupied": false,
+                "cable": null,
+                "description": "OpenVPN client to 20.25.48.31",
+                "device": {
+                    "description": "NetProg-CHR2; desired configuration for laboratory 3",
+                    "display": "CHR2",
+                    "id": 2,
+                    "name": "CHR2",
+                    "url": "http://127.0.0.1:8000/api/dcim/devices/2/"
+                },
+                "display": "ovpn-azure",
+                "id": 8,
+                "name": "ovpn-azure",
+                "url": "http://127.0.0.1:8000/api/dcim/interfaces/8/"
+            },
+            "assigned_object_id": 8,
+            "assigned_object_type": "dcim.interface",
+            "comments": "",
+            "created": "2026-09-29T20:21:22.927663Z",
+            "custom_fields": {},
+            "description": "",
+            "display": "FE:B1:31:93:4A:25",
+            "display_url": "http://127.0.0.1:8000/dcim/mac-addresses/8/",
+            "id": 8,
+            "is_primary": true,
+            "last_updated": "2026-09-29T20:23:56.812170Z",
+            "mac_address": "FE:B1:31:93:4A:25",
+            "owner": null,
+            "tags": [],
+            "url": "http://127.0.0.1:8000/api/dcim/mac-addresses/8/"
+        }
+    ],
+    "dcim/manufacturers": [
+        {
+            "comments": "",
+            "created": "2026-09-29T20:21:19.304060Z",
+            "custom_fields": {},
+            "description": "",
+            "devicetype_count": 1,
+            "display": "MikroTik",
+            "display_url": "http://127.0.0.1:8000/dcim/manufacturers/1/",
+            "id": 1,
+            "inventoryitem_count": 0,
+            "last_updated": "2026-09-29T20:23:48.456878Z",
+            "moduletype_count": 0,
+            "name": "MikroTik",
+            "owner": null,
+            "platform_count": 1,
+            "slug": "mikrotik",
+            "tags": [],
+            "url": "http://127.0.0.1:8000/api/dcim/manufacturers/1/"
+        }
+    ],
+    "dcim/platforms": [
+        {
+            "_depth": 0,
+            "comments": "",
+            "config_template": null,
+            "created": "2026-09-29T20:21:19.576866Z",
+            "custom_fields": {},
+            "description": "",
+            "device_count": 2,
+            "display": "RouterOS 7.23.7",
+            "display_url": "http://127.0.0.1:8000/dcim/platforms/1/",
+            "id": 1,
+            "last_updated": "2026-09-29T20:23:48.898660Z",
+            "manufacturer": {
+                "description": "",
+                "display": "MikroTik",
+                "id": 1,
+                "name": "MikroTik",
+                "slug": "mikrotik",
+                "url": "http://127.0.0.1:8000/api/dcim/manufacturers/1/"
+            },
+            "name": "RouterOS 7.23.7",
+            "owner": null,
+            "parent": null,
+            "slug": "routeros-7-23-7",
+            "tags": [],
+            "url": "http://127.0.0.1:8000/api/dcim/platforms/1/",
+            "virtualmachine_count": 0
+        }
+    ],
+    "dcim/sites": [
+        {
+            "asns": [],
+            "circuit_count": 0,
+            "comments": "",
+            "created": "2026-09-29T20:21:19.205900Z",
+            "custom_fields": {},
+            "description": "Local VirtualBox networking laboratory",
+            "device_count": 2,
+            "display": "ITMO K3421 Lab",
+            "display_url": "http://127.0.0.1:8000/dcim/sites/1/",
+            "facility": "",
+            "group": null,
+            "id": 1,
+            "last_updated": "2026-09-29T20:23:48.347436Z",
+            "latitude": null,
+            "longitude": null,
+            "name": "ITMO K3421 Lab",
+            "owner": null,
+            "physical_address": "",
+            "prefix_count": 0,
+            "rack_count": 0,
+            "region": null,
+            "shipping_address": "",
+            "slug": "itmo-k3421",
+            "status": {
+                "label": "Active",
+                "value": "active"
+            },
+            "tags": [],
+            "tenant": null,
+            "time_zone": null,
+            "url": "http://127.0.0.1:8000/api/dcim/sites/1/",
+            "virtualmachine_count": 0,
+            "vlan_count": 0
+        }
+    ],
+    "extras/custom-fields": [
+        {
+            "choice_set": null,
+            "comments": "",
+            "created": "2026-09-29T20:21:19.756224Z",
+            "data_type": "object",
+            "default": null,
+            "description": "",
+            "display": "Ansible observed facts (Lab2 snapshot)",
+            "display_url": "http://127.0.0.1:8000/extras/custom-fields/4/",
+            "filter_logic": {
+                "label": "Loose",
+                "value": "loose"
+            },
+            "group_name": "",
+            "id": 4,
+            "is_cloneable": false,
+            "label": "Ansible observed facts (Lab2 snapshot)",
+            "last_updated": "2026-09-29T20:23:49.408898Z",
+            "name": "observed_facts",
+            "nulls_first": true,
+            "object_types": [
+                "dcim.device"
+            ],
+            "owner": null,
+            "related_object_filter": null,
+            "related_object_type": null,
+            "required": false,
+            "search_weight": 1000,
+            "status": {
+                "label": "Active",
+                "value": "active"
+            },
+            "type": {
+                "label": "JSON",
+                "value": "json"
+            },
+            "ui_editable": {
+                "label": "Yes",
+                "value": "yes"
+            },
+            "ui_visible": {
+                "label": "Always",
+                "value": "always"
+            },
+            "unique": false,
+            "url": "http://127.0.0.1:8000/api/extras/custom-fields/4/",
+            "validation_maximum": null,
+            "validation_minimum": null,
+            "validation_regex": "",
+            "validation_schema": null,
+            "weight": 100
+        },
+        {
+            "choice_set": null,
+            "comments": "",
+            "created": "2026-09-29T20:21:19.618243Z",
+            "data_type": "string",
+            "default": null,
+            "description": "",
+            "display": "Serial number source",
+            "display_url": "http://127.0.0.1:8000/extras/custom-fields/1/",
+            "filter_logic": {
+                "label": "Loose",
+                "value": "loose"
+            },
+            "group_name": "",
+            "id": 1,
+            "is_cloneable": false,
+            "label": "Serial number source",
+            "last_updated": "2026-09-29T20:23:49.090443Z",
+            "name": "serial_source",
+            "nulls_first": true,
+            "object_types": [
+                "dcim.device"
+            ],
+            "owner": null,
+            "related_object_filter": null,
+            "related_object_type": null,
+            "required": false,
+            "search_weight": 1000,
+            "status": {
+                "label": "Active",
+                "value": "active"
+            },
+            "type": {
+                "label": "Text",
+                "value": "text"
+            },
+            "ui_editable": {
+                "label": "Yes",
+                "value": "yes"
+            },
+            "ui_visible": {
+                "label": "Always",
+                "value": "always"
+            },
+            "unique": false,
+            "url": "http://127.0.0.1:8000/api/extras/custom-fields/1/",
+            "validation_maximum": null,
+            "validation_minimum": null,
+            "validation_regex": "",
+            "validation_schema": null,
+            "weight": 100
+        },
+        {
+            "choice_set": null,
+            "comments": "",
+            "created": "2026-09-29T20:21:19.714791Z",
+            "data_type": "string",
+            "default": null,
+            "description": "",
+            "display": "RouterOS version",
+            "display_url": "http://127.0.0.1:8000/extras/custom-fields/3/",
+            "filter_logic": {
+                "label": "Loose",
+                "value": "loose"
+            },
+            "group_name": "",
+            "id": 3,
+            "is_cloneable": false,
+            "label": "RouterOS version",
+            "last_updated": "2026-09-29T20:23:49.300850Z",
+            "name": "software_version",
+            "nulls_first": true,
+            "object_types": [
+                "dcim.device"
+            ],
+            "owner": null,
+            "related_object_filter": null,
+            "related_object_type": null,
+            "required": false,
+            "search_weight": 1000,
+            "status": {
+                "label": "Active",
+                "value": "active"
+            },
+            "type": {
+                "label": "Text",
+                "value": "text"
+            },
+            "ui_editable": {
+                "label": "Yes",
+                "value": "yes"
+            },
+            "ui_visible": {
+                "label": "Always",
+                "value": "always"
+            },
+            "unique": false,
+            "url": "http://127.0.0.1:8000/api/extras/custom-fields/3/",
+            "validation_maximum": null,
+            "validation_minimum": null,
+            "validation_regex": "",
+            "validation_schema": null,
+            "weight": 100
+        },
+        {
+            "choice_set": null,
+            "comments": "",
+            "created": "2026-09-29T20:21:19.673727Z",
+            "data_type": "string",
+            "default": null,
+            "description": "",
+            "display": "Virtualization",
+            "display_url": "http://127.0.0.1:8000/extras/custom-fields/2/",
+            "filter_logic": {
+                "label": "Loose",
+                "value": "loose"
+            },
+            "group_name": "",
+            "id": 2,
+            "is_cloneable": false,
+            "label": "Virtualization",
+            "last_updated": "2026-09-29T20:23:49.196123Z",
+            "name": "virtualization",
+            "nulls_first": true,
+            "object_types": [
+                "dcim.device"
+            ],
+            "owner": null,
+            "related_object_filter": null,
+            "related_object_type": null,
+            "required": false,
+            "search_weight": 1000,
+            "status": {
+                "label": "Active",
+                "value": "active"
+            },
+            "type": {
+                "label": "Text",
+                "value": "text"
+            },
+            "ui_editable": {
+                "label": "Yes",
+                "value": "yes"
+            },
+            "ui_visible": {
+                "label": "Always",
+                "value": "always"
+            },
+            "unique": false,
+            "url": "http://127.0.0.1:8000/api/extras/custom-fields/2/",
+            "validation_maximum": null,
+            "validation_minimum": null,
+            "validation_regex": "",
+            "validation_schema": null,
+            "weight": 100
+        }
+    ],
+    "ipam/ip-addresses": [
+        {
+            "address": "10.0.2.15/24",
+            "assigned_object": {
+                "_occupied": false,
+                "cable": null,
+                "description": "VirtualBox NAT DHCP 10.0.2.15/24 (separate NAT per VM)",
+                "device": {
+                    "description": "NetProg-CHR1; desired configuration for laboratory 3",
+                    "display": "CHR1",
+                    "id": 1,
+                    "name": "CHR1",
+                    "url": "http://127.0.0.1:8000/api/dcim/devices/1/"
+                },
+                "display": "ether1",
+                "id": 1,
+                "name": "ether1",
+                "url": "http://127.0.0.1:8000/api/dcim/interfaces/1/"
+            },
+            "assigned_object_id": 1,
+            "assigned_object_type": "dcim.interface",
+            "comments": "",
+            "created": "2026-09-29T20:21:21.376651Z",
+            "custom_fields": {},
+            "description": "NAT DHCP observed",
+            "display": "10.0.2.15/24",
+            "display_url": "http://127.0.0.1:8000/ipam/ip-addresses/1/",
+            "dns_name": "",
+            "family": {
+                "label": "IPv4",
+                "value": 4
+            },
+            "id": 1,
+            "last_updated": "2026-09-29T20:23:53.237762Z",
+            "nat_inside": null,
+            "nat_outside": [],
+            "owner": null,
+            "role": null,
+            "status": {
+                "label": "Active",
+                "value": "active"
+            },
+            "tags": [],
+            "tenant": null,
+            "url": "http://127.0.0.1:8000/api/ipam/ip-addresses/1/",
+            "vrf": {
+                "description": "Separate VirtualBox NAT realm; duplicated DHCP address is intentional",
+                "display": "CHR1-NAT (65000:1)",
+                "id": 1,
+                "name": "CHR1-NAT",
+                "rd": "65000:1",
+                "url": "http://127.0.0.1:8000/api/ipam/vrfs/1/"
+            }
+        },
+        {
+            "address": "10.0.2.15/24",
+            "assigned_object": {
+                "_occupied": false,
+                "cable": null,
+                "description": "VirtualBox NAT DHCP 10.0.2.15/24 (separate NAT per VM)",
+                "device": {
+                    "description": "NetProg-CHR2; desired configuration for laboratory 3",
+                    "display": "CHR2",
+                    "id": 2,
+                    "name": "CHR2",
+                    "url": "http://127.0.0.1:8000/api/dcim/devices/2/"
+                },
+                "display": "ether1",
+                "id": 5,
+                "name": "ether1",
+                "url": "http://127.0.0.1:8000/api/dcim/interfaces/5/"
+            },
+            "assigned_object_id": 5,
+            "assigned_object_type": "dcim.interface",
+            "comments": "",
+            "created": "2026-09-29T20:21:23.114324Z",
+            "custom_fields": {},
+            "description": "NAT DHCP observed",
+            "display": "10.0.2.15/24",
+            "display_url": "http://127.0.0.1:8000/ipam/ip-addresses/6/",
+            "dns_name": "",
+            "family": {
+                "label": "IPv4",
+                "value": 4
+            },
+            "id": 6,
+            "last_updated": "2026-09-29T20:23:57.267643Z",
+            "nat_inside": null,
+            "nat_outside": [],
+            "owner": null,
+            "role": null,
+            "status": {
+                "label": "Active",
+                "value": "active"
+            },
+            "tags": [],
+            "tenant": null,
+            "url": "http://127.0.0.1:8000/api/ipam/ip-addresses/6/",
+            "vrf": {
+                "description": "Separate VirtualBox NAT realm; duplicated DHCP address is intentional",
+                "display": "CHR2-NAT (65000:2)",
+                "id": 2,
+                "name": "CHR2-NAT",
+                "rd": "65000:2",
+                "url": "http://127.0.0.1:8000/api/ipam/vrfs/2/"
+            }
+        },
+        {
+            "address": "10.8.0.2/24",
+            "assigned_object": {
+                "_occupied": false,
+                "cable": null,
+                "description": "OpenVPN client to 20.25.48.31",
+                "device": {
+                    "description": "NetProg-CHR1; desired configuration for laboratory 3",
+                    "display": "CHR1",
+                    "id": 1,
+                    "name": "CHR1",
+                    "url": "http://127.0.0.1:8000/api/dcim/devices/1/"
+                },
+                "display": "ovpn-azure",
+                "id": 4,
+                "name": "ovpn-azure",
+                "url": "http://127.0.0.1:8000/api/dcim/interfaces/4/"
+            },
+            "assigned_object_id": 4,
+            "assigned_object_type": "dcim.interface",
+            "comments": "",
+            "created": "2026-09-29T20:21:21.438799Z",
+            "custom_fields": {},
+            "description": "Azure VPN",
+            "display": "10.8.0.2/24",
+            "display_url": "http://127.0.0.1:8000/ipam/ip-addresses/2/",
+            "dns_name": "",
+            "family": {
+                "label": "IPv4",
+                "value": 4
+            },
+            "id": 2,
+            "last_updated": "2026-09-29T20:23:53.425108Z",
+            "nat_inside": null,
+            "nat_outside": [],
+            "owner": null,
+            "role": null,
+            "status": {
+                "label": "Active",
+                "value": "active"
+            },
+            "tags": [],
+            "tenant": null,
+            "url": "http://127.0.0.1:8000/api/ipam/ip-addresses/2/",
+            "vrf": null
+        },
+        {
+            "address": "10.8.0.3/24",
+            "assigned_object": {
+                "_occupied": false,
+                "cable": null,
+                "description": "OpenVPN client to 20.25.48.31",
+                "device": {
+                    "description": "NetProg-CHR2; desired configuration for laboratory 3",
+                    "display": "CHR2",
+                    "id": 2,
+                    "name": "CHR2",
+                    "url": "http://127.0.0.1:8000/api/dcim/devices/2/"
+                },
+                "display": "ovpn-azure",
+                "id": 8,
+                "name": "ovpn-azure",
+                "url": "http://127.0.0.1:8000/api/dcim/interfaces/8/"
+            },
+            "assigned_object_id": 8,
+            "assigned_object_type": "dcim.interface",
+            "comments": "",
+            "created": "2026-09-29T20:21:23.171935Z",
+            "custom_fields": {},
+            "description": "Azure VPN",
+            "display": "10.8.0.3/24",
+            "display_url": "http://127.0.0.1:8000/ipam/ip-addresses/7/",
+            "dns_name": "",
+            "family": {
+                "label": "IPv4",
+                "value": 4
+            },
+            "id": 7,
+            "last_updated": "2026-09-29T20:23:57.412609Z",
+            "nat_inside": null,
+            "nat_outside": [],
+            "owner": null,
+            "role": null,
+            "status": {
+                "label": "Active",
+                "value": "active"
+            },
+            "tags": [],
+            "tenant": null,
+            "url": "http://127.0.0.1:8000/api/ipam/ip-addresses/7/",
+            "vrf": null
+        },
+        {
+            "address": "10.10.12.1/30",
+            "assigned_object": {
+                "_occupied": false,
+                "cable": null,
+                "description": "Shared intnet netprog-ospf",
+                "device": {
+                    "description": "NetProg-CHR1; desired configuration for laboratory 3",
+                    "display": "CHR1",
+                    "id": 1,
+                    "name": "CHR1",
+                    "url": "http://127.0.0.1:8000/api/dcim/devices/1/"
+                },
+                "display": "ether2",
+                "id": 2,
+                "name": "ether2",
+                "url": "http://127.0.0.1:8000/api/dcim/interfaces/2/"
+            },
+            "assigned_object_id": 2,
+            "assigned_object_type": "dcim.interface",
+            "comments": "",
+            "created": "2026-09-29T20:21:21.690685Z",
+            "custom_fields": {},
+            "description": "OSPF transit",
+            "display": "10.10.12.1/30",
+            "display_url": "http://127.0.0.1:8000/ipam/ip-addresses/3/",
+            "dns_name": "",
+            "family": {
+                "label": "IPv4",
+                "value": 4
+            },
+            "id": 3,
+            "last_updated": "2026-09-29T20:23:53.780798Z",
+            "nat_inside": null,
+            "nat_outside": [],
+            "owner": null,
+            "role": null,
+            "status": {
+                "label": "Active",
+                "value": "active"
+            },
+            "tags": [],
+            "tenant": null,
+            "url": "http://127.0.0.1:8000/api/ipam/ip-addresses/3/",
+            "vrf": null
+        },
+        {
+            "address": "10.10.12.2/30",
+            "assigned_object": {
+                "_occupied": false,
+                "cable": null,
+                "description": "Shared intnet netprog-ospf",
+                "device": {
+                    "description": "NetProg-CHR2; desired configuration for laboratory 3",
+                    "display": "CHR2",
+                    "id": 2,
+                    "name": "CHR2",
+                    "url": "http://127.0.0.1:8000/api/dcim/devices/2/"
+                },
+                "display": "ether2",
+                "id": 6,
+                "name": "ether2",
+                "url": "http://127.0.0.1:8000/api/dcim/interfaces/6/"
+            },
+            "assigned_object_id": 6,
+            "assigned_object_type": "dcim.interface",
+            "comments": "",
+            "created": "2026-09-29T20:21:23.346746Z",
+            "custom_fields": {},
+            "description": "OSPF transit",
+            "display": "10.10.12.2/30",
+            "display_url": "http://127.0.0.1:8000/ipam/ip-addresses/8/",
+            "dns_name": "",
+            "family": {
+                "label": "IPv4",
+                "value": 4
+            },
+            "id": 8,
+            "last_updated": "2026-09-29T20:23:57.862729Z",
+            "nat_inside": null,
+            "nat_outside": [],
+            "owner": null,
+            "role": null,
+            "status": {
+                "label": "Active",
+                "value": "active"
+            },
+            "tags": [],
+            "tenant": null,
+            "url": "http://127.0.0.1:8000/api/ipam/ip-addresses/8/",
+            "vrf": null
+        },
+        {
+            "address": "10.255.0.1/32",
+            "assigned_object": {
+                "_occupied": false,
+                "cable": null,
+                "description": "OSPF router ID loopback",
+                "device": {
+                    "description": "NetProg-CHR1; desired configuration for laboratory 3",
+                    "display": "CHR1",
+                    "id": 1,
+                    "name": "CHR1",
+                    "url": "http://127.0.0.1:8000/api/dcim/devices/1/"
+                },
+                "display": "lo-lab",
+                "id": 3,
+                "name": "lo-lab",
+                "url": "http://127.0.0.1:8000/api/dcim/interfaces/3/"
+            },
+            "assigned_object_id": 3,
+            "assigned_object_type": "dcim.interface",
+            "comments": "",
+            "created": "2026-09-29T20:21:21.747052Z",
+            "custom_fields": {},
+            "description": "Router ID",
+            "display": "10.255.0.1/32",
+            "display_url": "http://127.0.0.1:8000/ipam/ip-addresses/4/",
+            "dns_name": "",
+            "family": {
+                "label": "IPv4",
+                "value": 4
+            },
+            "id": 4,
+            "last_updated": "2026-09-29T20:23:53.915701Z",
+            "nat_inside": null,
+            "nat_outside": [],
+            "owner": null,
+            "role": null,
+            "status": {
+                "label": "Active",
+                "value": "active"
+            },
+            "tags": [],
+            "tenant": null,
+            "url": "http://127.0.0.1:8000/api/ipam/ip-addresses/4/",
+            "vrf": null
+        },
+        {
+            "address": "10.255.0.2/32",
+            "assigned_object": {
+                "_occupied": false,
+                "cable": null,
+                "description": "OSPF router ID loopback",
+                "device": {
+                    "description": "NetProg-CHR2; desired configuration for laboratory 3",
+                    "display": "CHR2",
+                    "id": 2,
+                    "name": "CHR2",
+                    "url": "http://127.0.0.1:8000/api/dcim/devices/2/"
+                },
+                "display": "lo-lab",
+                "id": 7,
+                "name": "lo-lab",
+                "url": "http://127.0.0.1:8000/api/dcim/interfaces/7/"
+            },
+            "assigned_object_id": 7,
+            "assigned_object_type": "dcim.interface",
+            "comments": "",
+            "created": "2026-09-29T20:21:23.401054Z",
+            "custom_fields": {},
+            "description": "Router ID",
+            "display": "10.255.0.2/32",
+            "display_url": "http://127.0.0.1:8000/ipam/ip-addresses/9/",
+            "dns_name": "",
+            "family": {
+                "label": "IPv4",
+                "value": 4
+            },
+            "id": 9,
+            "last_updated": "2026-09-29T20:23:58.055237Z",
+            "nat_inside": null,
+            "nat_outside": [],
+            "owner": null,
+            "role": null,
+            "status": {
+                "label": "Active",
+                "value": "active"
+            },
+            "tags": [],
+            "tenant": null,
+            "url": "http://127.0.0.1:8000/api/ipam/ip-addresses/9/",
+            "vrf": null
+        },
+        {
+            "address": "172.20.30.1/24",
+            "assigned_object": {
+                "_occupied": false,
+                "cable": null,
+                "description": "Shared intnet netprog-ospf",
+                "device": {
+                    "description": "NetProg-CHR1; desired configuration for laboratory 3",
+                    "display": "CHR1",
+                    "id": 1,
+                    "name": "CHR1",
+                    "url": "http://127.0.0.1:8000/api/dcim/devices/1/"
+                },
+                "display": "ether2",
+                "id": 2,
+                "name": "ether2",
+                "url": "http://127.0.0.1:8000/api/dcim/interfaces/2/"
+            },
+            "assigned_object_id": 2,
+            "assigned_object_type": "dcim.interface",
+            "comments": "",
+            "created": "2026-09-29T20:21:21.804006Z",
+            "custom_fields": {},
+            "description": "Lab3 managed",
+            "display": "172.20.30.1/24",
+            "display_url": "http://127.0.0.1:8000/ipam/ip-addresses/5/",
+            "dns_name": "",
+            "family": {
+                "label": "IPv4",
+                "value": 4
+            },
+            "id": 5,
+            "last_updated": "2026-09-29T20:23:54.065693Z",
+            "nat_inside": null,
+            "nat_outside": [],
+            "owner": null,
+            "role": null,
+            "status": {
+                "label": "Active",
+                "value": "active"
+            },
+            "tags": [],
+            "tenant": null,
+            "url": "http://127.0.0.1:8000/api/ipam/ip-addresses/5/",
+            "vrf": null
+        },
+        {
+            "address": "172.20.30.2/24",
+            "assigned_object": {
+                "_occupied": false,
+                "cable": null,
+                "description": "Shared intnet netprog-ospf",
+                "device": {
+                    "description": "NetProg-CHR2; desired configuration for laboratory 3",
+                    "display": "CHR2",
+                    "id": 2,
+                    "name": "CHR2",
+                    "url": "http://127.0.0.1:8000/api/dcim/devices/2/"
+                },
+                "display": "ether2",
+                "id": 6,
+                "name": "ether2",
+                "url": "http://127.0.0.1:8000/api/dcim/interfaces/6/"
+            },
+            "assigned_object_id": 6,
+            "assigned_object_type": "dcim.interface",
+            "comments": "",
+            "created": "2026-09-29T20:21:23.502991Z",
+            "custom_fields": {},
+            "description": "Lab3 managed",
+            "display": "172.20.30.2/24",
+            "display_url": "http://127.0.0.1:8000/ipam/ip-addresses/10/",
+            "dns_name": "",
+            "family": {
+                "label": "IPv4",
+                "value": 4
+            },
+            "id": 10,
+            "last_updated": "2026-09-29T20:23:58.196612Z",
+            "nat_inside": null,
+            "nat_outside": [],
+            "owner": null,
+            "role": null,
+            "status": {
+                "label": "Active",
+                "value": "active"
+            },
+            "tags": [],
+            "tenant": null,
+            "url": "http://127.0.0.1:8000/api/ipam/ip-addresses/10/",
+            "vrf": null
+        }
+    ],
+    "ipam/prefixes": [
+        {
+            "_depth": 0,
+            "children": 0,
+            "comments": "",
+            "created": "2026-09-29T20:21:19.814222Z",
+            "custom_fields": {},
+            "description": "Azure OpenVPN",
+            "display": "10.8.0.0/24",
+            "display_url": "http://127.0.0.1:8000/ipam/prefixes/1/",
+            "family": {
+                "label": "IPv4",
+                "value": 4
+            },
+            "id": 1,
+            "is_pool": false,
+            "last_updated": "2026-09-29T20:23:49.526603Z",
+            "mark_utilized": false,
+            "owner": null,
+            "prefix": "10.8.0.0/24",
+            "role": null,
+            "scope": null,
+            "scope_id": null,
+            "scope_type": null,
+            "status": {
+                "label": "Active",
+                "value": "active"
+            },
+            "tags": [],
+            "tenant": null,
+            "url": "http://127.0.0.1:8000/api/ipam/prefixes/1/",
+            "vlan": null,
+            "vrf": null
+        },
+        {
+            "_depth": 0,
+            "children": 0,
+            "comments": "",
+            "created": "2026-09-29T20:21:19.884469Z",
+            "custom_fields": {},
+            "description": "Lab2 OSPF transit",
+            "display": "10.10.12.0/30",
+            "display_url": "http://127.0.0.1:8000/ipam/prefixes/2/",
+            "family": {
+                "label": "IPv4",
+                "value": 4
+            },
+            "id": 2,
+            "is_pool": false,
+            "last_updated": "2026-09-29T20:23:49.658679Z",
+            "mark_utilized": false,
+            "owner": null,
+            "prefix": "10.10.12.0/30",
+            "role": null,
+            "scope": null,
+            "scope_id": null,
+            "scope_type": null,
+            "status": {
+                "label": "Active",
+                "value": "active"
+            },
+            "tags": [],
+            "tenant": null,
+            "url": "http://127.0.0.1:8000/api/ipam/prefixes/2/",
+            "vlan": null,
+            "vrf": null
+        },
+        {
+            "_depth": 0,
+            "children": 0,
+            "comments": "",
+            "created": "2026-09-29T20:21:19.977249Z",
+            "custom_fields": {},
+            "description": "Lab loopback allocation",
+            "display": "10.255.0.0/24",
+            "display_url": "http://127.0.0.1:8000/ipam/prefixes/4/",
+            "family": {
+                "label": "IPv4",
+                "value": 4
+            },
+            "id": 4,
+            "is_pool": false,
+            "last_updated": "2026-09-29T20:23:49.933688Z",
+            "mark_utilized": false,
+            "owner": null,
+            "prefix": "10.255.0.0/24",
+            "role": null,
+            "scope": null,
+            "scope_id": null,
+            "scope_type": null,
+            "status": {
+                "label": "Active",
+                "value": "active"
+            },
+            "tags": [],
+            "tenant": null,
+            "url": "http://127.0.0.1:8000/api/ipam/prefixes/4/",
+            "vlan": null,
+            "vrf": null
+        },
+        {
+            "_depth": 0,
+            "children": 0,
+            "comments": "",
+            "created": "2026-09-29T20:21:19.929766Z",
+            "custom_fields": {},
+            "description": "Lab3 NetBox management",
+            "display": "172.20.30.0/24",
+            "display_url": "http://127.0.0.1:8000/ipam/prefixes/3/",
+            "family": {
+                "label": "IPv4",
+                "value": 4
+            },
+            "id": 3,
+            "is_pool": false,
+            "last_updated": "2026-09-29T20:23:49.791909Z",
+            "mark_utilized": false,
+            "owner": null,
+            "prefix": "172.20.30.0/24",
+            "role": null,
+            "scope": null,
+            "scope_id": null,
+            "scope_type": null,
+            "status": {
+                "label": "Active",
+                "value": "active"
+            },
+            "tags": [],
+            "tenant": null,
+            "url": "http://127.0.0.1:8000/api/ipam/prefixes/3/",
+            "vlan": null,
+            "vrf": null
+        }
+    ],
+    "ipam/vrfs": [
+        {
+            "comments": "",
+            "created": "2026-09-29T20:21:21.317515Z",
+            "custom_fields": {},
+            "description": "Separate VirtualBox NAT realm; duplicated DHCP address is intentional",
+            "display": "CHR1-NAT (65000:1)",
+            "display_url": "http://127.0.0.1:8000/ipam/vrfs/1/",
+            "enforce_unique": true,
+            "export_targets": [],
+            "id": 1,
+            "import_targets": [],
+            "ipaddress_count": 1,
+            "last_updated": "2026-09-29T20:23:53.025317Z",
+            "name": "CHR1-NAT",
+            "owner": null,
+            "prefix_count": 0,
+            "rd": "65000:1",
+            "tags": [],
+            "tenant": null,
+            "url": "http://127.0.0.1:8000/api/ipam/vrfs/1/"
+        },
+        {
+            "comments": "",
+            "created": "2026-09-29T20:21:23.057128Z",
+            "custom_fields": {},
+            "description": "Separate VirtualBox NAT realm; duplicated DHCP address is intentional",
+            "display": "CHR2-NAT (65000:2)",
+            "display_url": "http://127.0.0.1:8000/ipam/vrfs/2/",
+            "enforce_unique": true,
+            "export_targets": [],
+            "id": 2,
+            "import_targets": [],
+            "ipaddress_count": 1,
+            "last_updated": "2026-09-29T20:23:57.090586Z",
+            "name": "CHR2-NAT",
+            "owner": null,
+            "prefix_count": 0,
+            "rd": "65000:2",
+            "tags": [],
+            "tenant": null,
+            "url": "http://127.0.0.1:8000/api/ipam/vrfs/2/"
+        }
+    ]
+}

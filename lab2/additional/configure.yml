@@ -1,0 +1,38 @@
+---
+- name: Configure both RouterOS devices for lab 2
+  hosts: routers
+  gather_facts: false
+  tasks:
+    - name: Create or update the lab login and password
+      community.routeros.command:
+        commands:
+          - >-
+            :if ([:len [/user find where name="netprog"]] = 0) do={
+            /user add name=netprog group=full address=10.8.0.0/24 password="{{ managed_passwords[inventory_hostname] }}"
+            } else={ /user set [find where name="netprog"] group=full address=10.8.0.0/24 password="{{ managed_passwords[inventory_hostname] }}" }
+      no_log: true
+
+    - name: Configure NTP client
+      community.routeros.command:
+        commands:
+          - /system ntp client set enabled=yes mode=unicast
+          - ':if ([:len [/system ntp client servers find where address="162.159.200.1"]] = 0) do={ /system ntp client servers add address=162.159.200.1 }'
+          - ':if ([:len [/system ntp client servers find where address="162.159.200.123"]] = 0) do={ /system ntp client servers add address=162.159.200.123 }'
+
+    - name: Configure internal transit and loopback addresses
+      community.routeros.command:
+        commands:
+          - ':if ([:len [/interface bridge find where name="lo-lab"]] = 0) do={ /interface bridge add name=lo-lab protocol-mode=none comment="Lab2 loopback" }'
+          - ':if ([:len [/ip address find where address="{{ transit_address }}"]] = 0) do={ /ip address add address={{ transit_address }} interface=ether2 comment="Lab2 OSPF transit" }'
+          - ':if ([:len [/ip address find where address="{{ router_id }}/32"]] = 0) do={ /ip address add address={{ router_id }}/32 interface=lo-lab comment="Lab2 Router ID" }'
+
+    - name: Configure OSPFv2 with explicit Router ID
+      community.routeros.command:
+        commands:
+          - ':if ([:len [/routing ospf instance find where name="lab2"]] = 0) do={ /routing ospf instance add name=lab2 version=2 router-id={{ router_id }} } else={ /routing ospf instance set [find where name="lab2"] router-id={{ router_id }} disabled=no }'
+          - ':if ([:len [/routing ospf area find where name="backbone-lab2"]] = 0) do={ /routing ospf area add name=backbone-lab2 instance=lab2 area-id=0.0.0.0 }'
+          - ':if ([:len [/routing ospf interface-template find where comment="Lab2 transit"]] = 0) do={ /routing ospf interface-template add area=backbone-lab2 interfaces=ether2 networks=10.10.12.0/30 type=ptp comment="Lab2 transit" }'
+          - ':if ([:len [/routing ospf interface-template find where comment="Lab2 loopback"]] = 0) do={ /routing ospf interface-template add area=backbone-lab2 interfaces=lo-lab networks={{ router_id }}/32 passive comment="Lab2 loopback" }'
+
+      register: ospf_result
+      failed_when: ospf_result.stdout | join(' ') is search('syntax error|expected end of command|failure:|bad command name')

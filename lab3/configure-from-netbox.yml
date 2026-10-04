@@ -1,0 +1,66 @@
+---
+- name: Read desired device configuration from NetBox
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  roles:
+    - role: additional/roles/netbox_export
+  tasks:
+    - name: Create runtime inventory from NetBox device context
+      ansible.builtin.add_host:
+        name: "{{ item.name }}"
+        groups: routers
+        ansible_host: "{{ item.config_context.ansible_host }}"
+        ansible_port: "{{ item.config_context.ansible_port }}"
+        netbox_id: "{{ item.id }}"
+        original_name: "{{ item.config_context.original_name }}"
+        desired_name: "{{ item.name }}"
+        desired_ips: "{{ netbox_export['ipam/ip-addresses'] | selectattr('description', 'equalto', 'Lab3 managed') | selectattr('assigned_object.device.id', 'equalto', item.id) | list }}"
+      loop: "{{ netbox_export['dcim/devices'] }}"
+      loop_control:
+        label: "{{ item.name }}"
+
+- name: Apply NetBox names and addresses to CHR
+  hosts: routers
+  gather_facts: false
+  vars:
+    ansible_connection: ansible.netcommon.network_cli
+    ansible_network_os: community.routeros.routeros
+    ansible_network_cli_ssh_type: paramiko
+    ansible_user: admin+cet1024w
+    ansible_password: "{{ lab_passwords[hostvars[inventory_hostname].original_name] }}"
+  tasks:
+    - name: Set desired device name
+      community.routeros.command:
+        commands:
+          - ':if ([/system identity get name] != "{{ desired_name }}") do={/system identity set name="{{ desired_name }}"; :put "changed"}'
+      register: identity
+      changed_when: "'changed' in identity.stdout[0]"
+      failed_when: "identity.stdout | join(' ') is search('syntax error|failure:|bad command|expected end')"
+    - name: Add managed addresses from NetBox
+      community.routeros.command:
+        commands:
+          - ':if ([:len [/ip address find where address="{{ item.address }}" interface="{{ item.assigned_object.name }}"]] = 0) do={/ip address add address="{{ item.address }}" interface="{{ item.assigned_object.name }}" comment="Lab3 NetBox managed"; :put "changed"}'
+      loop: "{{ desired_ips }}"
+      loop_control:
+        label: "{{ item.address }}"
+      register: addresses
+      changed_when: "'changed' in addresses.stdout[0]"
+      failed_when: "addresses.stdout | join(' ') is search('syntax error|failure:|bad command|expected end')"
+    - name: Verify name and address configuration
+      community.routeros.command:
+        commands:
+          - ':put [/system identity get name]'
+          - '/ip address print detail without-paging where comment="Lab3 NetBox managed"'
+      register: verified
+      changed_when: false
+    - name: Assert configured name
+      ansible.builtin.assert:
+        that: verified.stdout[0] | trim == desired_name
+    - name: Save verification
+      ansible.builtin.copy:
+        content: "{{ verified.stdout | join('\n') }}\n"
+        dest: "{{ playbook_dir }}/additional/evidence/{{ inventory_hostname }}-configuration.txt"
+      delegate_to: localhost
+      vars:
+        ansible_connection: local

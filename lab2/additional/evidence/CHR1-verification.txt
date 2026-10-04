@@ -1,0 +1,98 @@
+CHR1
+
+---
+
+enabled: yes            
+            mode: unicast        
+         servers: 162.159.200.1  
+                  162.159.200.123
+             vrf: main           
+      freq-drift: 19.669 PPM     
+          status: synchronized   
+   synced-server: 162.159.200.1  
+  synced-stratum: 3              
+   system-offset: 21.793 ms
+
+---
+
+Flags: X - DISABLED; D - DYNAMIC 
+ 0    address=162.159.200.1 min-poll=6 max-poll=10 iburst=yes auth-key=none 
+
+ 1    address=162.159.200.123 min-poll=6 max-poll=10 iburst=yes auth-key=none
+
+---
+
+Flags: X - DISABLED, I - INACTIVE 
+ 0   name="lab2" version=2 vrf=main router-id=10.255.0.1
+
+---
+
+Flags: V - VIRTUAL; D - DYNAMIC 
+ 0  D instance=lab2 area=backbone-lab2 interface=ether2 address=10.10.12.2 router-id=10.255.0.2 state="Full" state-changes=6 adjacency=17m48s timeout=33s
+
+---
+
+Flags: S - SELF-ORIGINATED; F - FLUSHING, W - WRAPAROUND; D - DYNAMIC 
+ 0 S D instance=lab2 area=backbone-lab2 type="router" originator=10.255.0.1 id=10.255.0.1 sequence=0x80000005 age=1062 checksum=0x9032 body=
+         options=E
+             type=p2p id=10.255.0.2 data=10.10.12.1 metric=1
+             type=stub id=10.10.12.0 data=255.255.255.252 metric=1
+             type=stub id=10.255.0.1 data=255.255.255.255 metric=1
+
+ 1   D instance=lab2 area=backbone-lab2 type="router" originator=10.255.0.2 id=10.255.0.2 sequence=0x80000003 age=1067 checksum=0xAA17 body=
+         options=E
+             type=p2p id=10.255.0.1 data=10.10.12.2 metric=1
+             type=stub id=10.10.12.0 data=255.255.255.252 metric=1
+             type=stub id=10.255.0.2 data=255.255.255.255 metric=1
+
+---
+
+Flags: D - DYNAMIC; X - DISABLED, I - INACTIVE, A - ACTIVE; c - CONNECT, s - STATIC, r - RIP, b - BGP, o - OSPF, i - IS-IS, d - DHCP, v - VPN, m - MODEM, y - BGP-MPLS-VPN; H - HW-OFFLOADED; + - ECMP 
+   DAo   dst-address=10.255.0.2/32 routing-table=main gateway=10.10.12.2%ether2 immediate-gw=10.10.12.2%ether2 distance=110 scope=20 target-scope=10
+
+---
+
+Flags: X - DISABLED, I - INVALID; D - DYNAMIC; S - SLAVE 
+ 0     ;;; Lab2 OSPF transit
+       address=10.10.12.1/30 network=10.10.12.0 interface=ether2 actual-interface=ether2 vrf=main 
+
+ 1     ;;; Lab2 Router ID
+       address=10.255.0.1/32 network=10.255.0.1 interface=lo-lab actual-interface=lo-lab vrf=main 
+
+ 2     ;;; Lab3 NetBox managed
+       address=172.20.30.1/24 network=172.20.30.0 interface=ether2 actual-interface=ether2 vrf=main 
+
+ 3  D  address=10.0.2.15/24 network=10.0.2.0 interface=ether1 actual-interface=ether1 vrf=main 
+
+ 4  D  address=10.8.0.2/24 network=10.8.0.0 interface=ovpn-azure actual-interface=ovpn-azure vrf=main
+
+---
+
+status: connected         
+         uptime: 58m46s            
+       encoding: AES-256-CBC/SHA256
+            mtu: 1500              
+  local-address: 10.8.0.2
+
+---
+
+SEQ HOST                                     SIZE TTL TIME       STATUS                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+    0 10.10.12.2                                 56  64 489us     
+    1 10.10.12.2                                 56  64 525us     
+    2 10.10.12.2                                 56  64 519us     
+    3 10.10.12.2                                 56  64 491us     
+    sent=4 received=4 packet-loss=0% min-rtt=489us avg-rtt=506us max-rtt=525us
+
+---
+
+SEQ HOST                                     SIZE TTL TIME       STATUS                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+    0 10.255.0.2                                 56  64 483us     
+    1 10.255.0.2                                 56  64 690us     
+    2 10.255.0.2                                 56  64 508us     
+    3 10.255.0.2                                 56  64 597us     
+    sent=4 received=4 packet-loss=0% min-rtt=483us avg-rtt=569us max-rtt=690us
+
+---
+
+Flags: E - EXPIRED; X - DISABLED 
+ 0    name="netprog" group=full inactivity-timeout=10m inactivity-policy=none address=10.8.0.0/24 last-logged-in=2026-09-29 19:51:58

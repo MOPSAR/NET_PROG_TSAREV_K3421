@@ -1,0 +1,5 @@
+p4c-bm2-ss
+Version 1.2.5.17 (SHA:  BUILD: Release)
+1.15.6
+Python 3.12.3
+2.3.0

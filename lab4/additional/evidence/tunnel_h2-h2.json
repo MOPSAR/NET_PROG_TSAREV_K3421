@@ -1,0 +1,8 @@
+[
+  {
+    "ip_dst": "10.0.2.2",
+    "ttl": 64,
+    "tunnel_dst": 2,
+    "payload": "tunnel_h2"
+  }
+]

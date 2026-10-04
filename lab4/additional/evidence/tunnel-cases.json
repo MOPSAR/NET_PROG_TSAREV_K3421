@@ -1,0 +1,98 @@
+[
+  {
+    "case": "plain_h2",
+    "ip_destination": "10.0.2.2",
+    "tunnel_destination": null,
+    "expected_receiver": "h2",
+    "actual_receivers": [
+      "h2"
+    ],
+    "passed": true,
+    "packets": {
+      "h2": [
+        {
+          "ip_dst": "10.0.2.2",
+          "ttl": 62,
+          "tunnel_dst": null,
+          "payload": "plain_h2"
+        }
+      ],
+      "h3": []
+    }
+  },
+  {
+    "case": "plain_h3",
+    "ip_destination": "10.0.3.3",
+    "tunnel_destination": null,
+    "expected_receiver": "h3",
+    "actual_receivers": [
+      "h3"
+    ],
+    "passed": true,
+    "packets": {
+      "h2": [],
+      "h3": [
+        {
+          "ip_dst": "10.0.3.3",
+          "ttl": 62,
+          "tunnel_dst": null,
+          "payload": "plain_h3"
+        }
+      ]
+    }
+  },
+  {
+    "case": "tunnel_h2",
+    "ip_destination": "10.0.2.2",
+    "tunnel_destination": 2,
+    "expected_receiver": "h2",
+    "actual_receivers": [
+      "h2"
+    ],
+    "passed": true,
+    "packets": {
+      "h2": [
+        {
+          "ip_dst": "10.0.2.2",
+          "ttl": 64,
+          "tunnel_dst": 2,
+          "payload": "tunnel_h2"
+        }
+      ],
+      "h3": []
+    }
+  },
+  {
+    "case": "tunnel_overrides_ip",
+    "ip_destination": "10.0.3.3",
+    "tunnel_destination": 2,
+    "expected_receiver": "h2",
+    "actual_receivers": [
+      "h2"
+    ],
+    "passed": true,
+    "packets": {
+      "h2": [
+        {
+          "ip_dst": "10.0.3.3",
+          "ttl": 64,
+          "tunnel_dst": 2,
+          "payload": "tunnel_overrides_ip"
+        }
+      ],
+      "h3": []
+    }
+  },
+  {
+    "case": "unknown_tunnel",
+    "ip_destination": "10.0.2.2",
+    "tunnel_destination": 99,
+    "expected_receiver": null,
+    "actual_receivers": [],
+    "passed": true,
+    "packets": {
+      "h2": [],
+      "h3": []
+    }
+  }
+]

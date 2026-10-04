@@ -1,0 +1,23 @@
+
+PLAY [Configure both RouterOS devices for lab 2] *******************************
+
+TASK [Create or update the lab login and password] *****************************
+changed: [CHR2]
+changed: [CHR1]
+
+TASK [Configure NTP client] ****************************************************
+changed: [CHR2]
+changed: [CHR1]
+
+TASK [Configure internal transit and loopback addresses] ***********************
+changed: [CHR2]
+changed: [CHR1]
+
+TASK [Configure OSPFv2 with explicit Router ID] ********************************
+changed: [CHR2]
+changed: [CHR1]
+
+PLAY RECAP *********************************************************************
+CHR1                       : ok=4    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+CHR2                       : ok=4    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

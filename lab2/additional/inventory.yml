@@ -1,0 +1,24 @@
+all:
+  children:
+    routers:
+      vars:
+        ansible_connection: ansible.netcommon.network_cli
+        ansible_network_os: community.routeros.routeros
+        ansible_network_cli_ssh_type: paramiko
+        ansible_user: "{{ lab_login | default('admin') }}+cet1024w"
+        ansible_password: "{{ lab_passwords[inventory_hostname] }}"
+        ansible_command_timeout: 60
+        ansible_connect_timeout: 60
+      hosts:
+        CHR1:
+          ansible_host: 10.8.0.2
+          router_id: 10.255.0.1
+          transit_address: 10.10.12.1/30
+          peer_address: 10.10.12.2
+          peer_router_id: 10.255.0.2
+        CHR2:
+          ansible_host: 10.8.0.3
+          router_id: 10.255.0.2
+          transit_address: 10.10.12.2/30
+          peer_address: 10.10.12.1
+          peer_router_id: 10.255.0.1

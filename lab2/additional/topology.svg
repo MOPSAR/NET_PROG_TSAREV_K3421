@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="620" viewBox="0 0 1100 620">
+<rect width="1100" height="620" fill="#f7f9fc"/>
+<g font-family="Arial,sans-serif" fill="#193247">
+<text x="45" y="35" font-size="23" font-weight="bold">Лабораторная №2: Ansible, два CHR и OSPF</text>
+<path d="M440 180 L260 350 M640 180 L840 350 M440 425 L660 425" fill="none" stroke="#4173a2" stroke-width="3"/>
+<text x="200" y="250" font-size="17">OpenVPN TCP/1194</text>
+<text x="720" y="250" font-size="17">OpenVPN TCP/1194</text>
+<text x="550" y="380" font-size="16" text-anchor="middle">OSPFv2 • area 0</text>
+<text x="550" y="403" font-size="16" text-anchor="middle">10.10.12.0/30</text>
+<rect x="350" y="50" width="380" height="130" rx="14" fill="#e8f1fe" stroke="#33516b"/>
+<text x="540.0" y="80" text-anchor="middle" font-size="17" font-weight="bold">Azure: netprog-ansible</text>
+<text x="540.0" y="107" text-anchor="middle" font-size="17">Ubuntu 24.04 / Ansible</text>
+<text x="540.0" y="134" text-anchor="middle" font-size="17">20.25.48.31</text>
+<text x="540.0" y="161" text-anchor="middle" font-size="17">OpenVPN: 10.8.0.1/24</text>
+<rect x="80" y="350" width="360" height="150" rx="14" fill="#e4f4ed" stroke="#33516b"/>
+<text x="260.0" y="380" text-anchor="middle" font-size="17" font-weight="bold">CHR1: RouterOS 7.23.7</text>
+<text x="260.0" y="407" text-anchor="middle" font-size="17">VPN: 10.8.0.2/24</text>
+<text x="260.0" y="434" text-anchor="middle" font-size="17">ether2: 10.10.12.1/30</text>
+<text x="260.0" y="461" text-anchor="middle" font-size="17">Router ID / loopback: 10.255.0.1/32</text>
+<rect x="660" y="350" width="360" height="150" rx="14" fill="#e4f4ed" stroke="#33516b"/>
+<text x="840.0" y="380" text-anchor="middle" font-size="17" font-weight="bold">CHR2: RouterOS 7.23.7</text>
+<text x="840.0" y="407" text-anchor="middle" font-size="17">VPN: 10.8.0.3/24</text>
+<text x="840.0" y="434" text-anchor="middle" font-size="17">ether2: 10.10.12.2/30</text>
+<text x="840.0" y="461" text-anchor="middle" font-size="17">Router ID / loopback: 10.255.0.2/32</text>
+<text x="550" y="548" text-anchor="middle" font-size="17">ether2: связь между CHR1 и CHR2 через внутреннюю сеть VirtualBox</text>
+<text x="550" y="578" text-anchor="middle" font-size="16">ether1: выход каждого маршрутизатора в интернет через NAT VirtualBox</text>
+</g></svg>

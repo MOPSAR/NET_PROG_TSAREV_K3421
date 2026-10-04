@@ -1,0 +1,74 @@
+---
+- name: Verify and collect both routers
+  hosts: routers
+  gather_facts: false
+  tasks:
+    - name: Gather RouterOS facts
+      community.routeros.facts:
+        gather_subset: all
+      register: router_facts
+
+    - name: Wait for a Full OSPF adjacency
+      community.routeros.command:
+        commands:
+          - ':put [:len [/routing ospf neighbor find where state="Full"]]'
+      register: adjacency
+      changed_when: false
+      until: adjacency.stdout[0] | trim == '1'
+      retries: 12
+      delay: 5
+
+    - name: Collect topology, NTP, routes, pings and complete text export
+      community.routeros.command:
+        commands:
+          - ':put [/system identity get name]'
+          - /system ntp client print
+          - /system ntp client servers print detail without-paging
+          - /routing ospf instance print detail without-paging
+          - /routing ospf neighbor print detail without-paging
+          - /routing ospf lsa print detail without-paging
+          - /ip route print detail without-paging where ospf
+          - /ip address print detail without-paging
+          - /interface ovpn-client monitor ovpn-azure once
+          - /ping {{ peer_address }} count=4
+          - /ping {{ peer_router_id }} src-address={{ router_id }} count=4
+          - /export terse
+          - /user print detail without-paging where name=netprog
+      register: collected
+      changed_when: false
+
+    - name: Ensure pings succeeded through the internal and OSPF routes
+      ansible.builtin.assert:
+        that:
+          - "'packet-loss=0%' in collected.stdout[9]"
+          - "'packet-loss=0%' in collected.stdout[10]"
+          - "peer_router_id in collected.stdout[6]"
+
+    - name: Create evidence directory on controller
+      ansible.builtin.file:
+        path: "{{ playbook_dir }}/evidence"
+        state: directory
+        mode: '0755'
+      delegate_to: localhost
+      run_once: true
+
+    - name: Save facts
+      ansible.builtin.copy:
+        content: "{{ router_facts.ansible_facts | combine({'ansible_net_hostname': collected.stdout[0] | trim}) | to_nice_json }}\n"
+        dest: "{{ playbook_dir }}/evidence/{{ inventory_hostname }}-facts.json"
+        mode: '0644'
+      delegate_to: localhost
+
+    - name: Save full configuration without secrets
+      ansible.builtin.copy:
+        content: "{{ collected.stdout[11] }}\n"
+        dest: "{{ playbook_dir }}/../{{ inventory_hostname }}.rsc"
+        mode: '0644'
+      delegate_to: localhost
+
+    - name: Save verification protocol
+      ansible.builtin.copy:
+        content: "{{ (collected.stdout[:11] + [collected.stdout[12]]) | join('\n\n---\n\n') }}\n"
+        dest: "{{ playbook_dir }}/evidence/{{ inventory_hostname }}-verification.txt"
+        mode: '0644'
+      delegate_to: localhost

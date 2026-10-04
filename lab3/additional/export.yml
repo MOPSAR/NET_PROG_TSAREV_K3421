@@ -1,0 +1,7 @@
+---
+- name: Export NetBox inventory using read-only requests (also in check mode)
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  roles:
+    - netbox_export

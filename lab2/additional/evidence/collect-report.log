@@ -1,0 +1,44 @@
+
+PLAY [Verify and collect both routers] *****************************************
+
+TASK [Gather RouterOS facts] ***************************************************
+ok: [CHR1]
+ok: [CHR2]
+
+TASK [Wait for a Full OSPF adjacency] ******************************************
+ok: [CHR1]
+ok: [CHR2]
+
+TASK [Collect topology, NTP, routes, pings and complete text export] ***********
+ok: [CHR1]
+ok: [CHR2]
+
+TASK [Ensure pings succeeded through the internal and OSPF routes] *************
+ok: [CHR1] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [CHR2] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [Create evidence directory on controller] *********************************
+ok: [CHR1 -> localhost]
+
+TASK [Save facts] **************************************************************
+changed: [CHR1 -> localhost]
+changed: [CHR2 -> localhost]
+
+TASK [Save full configuration without secrets] *********************************
+changed: [CHR1 -> localhost]
+changed: [CHR2 -> localhost]
+
+TASK [Save verification protocol] **********************************************
+changed: [CHR2 -> localhost]
+changed: [CHR1 -> localhost]
+
+PLAY RECAP *********************************************************************
+CHR1                       : ok=8    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+CHR2                       : ok=7    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

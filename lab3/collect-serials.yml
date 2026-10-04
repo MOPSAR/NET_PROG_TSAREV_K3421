@@ -1,0 +1,64 @@
+---
+- name: Load CHR inventory from NetBox
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  roles:
+    - role: additional/roles/netbox_export
+  tasks:
+    - name: Create runtime inventory
+      ansible.builtin.add_host:
+        name: "{{ item.name }}"
+        groups: routers
+        ansible_host: "{{ item.config_context.ansible_host }}"
+        ansible_port: "{{ item.config_context.ansible_port }}"
+        original_name: "{{ item.config_context.original_name }}"
+        netbox_id: "{{ item.id }}"
+      loop: "{{ netbox_export['dcim/devices'] }}"
+      loop_control:
+        label: "{{ item.name }}"
+
+- name: Collect CHR virtual identifiers and update NetBox
+  hosts: routers
+  gather_facts: false
+  vars:
+    ansible_connection: ansible.netcommon.network_cli
+    ansible_network_os: community.routeros.routeros
+    ansible_network_cli_ssh_type: paramiko
+    ansible_user: admin+cet1024w
+    ansible_password: "{{ lab_passwords[hostvars[inventory_hostname].original_name] }}"
+  tasks:
+    - name: Read CHR system-id (CHR has no physical RouterBOARD serial)
+      community.routeros.command:
+        commands:
+          - ':put [/system license get system-id]'
+      register: identifier
+      changed_when: false
+    - name: Validate identifier
+      ansible.builtin.assert:
+        that:
+          - identifier.stdout[0] | trim | length > 3
+          - "not (identifier.stdout[0] is search('error|failure|bad command'))"
+    - name: Write virtual serial and its provenance to NetBox
+      ansible.builtin.uri:
+        url: "{{ netbox_url }}/api/dcim/devices/{{ netbox_id }}/"
+        method: PATCH
+        headers:
+          Authorization: "{{ netbox_authorization }}"
+        body_format: json
+        body:
+          serial: "{{ identifier.stdout[0] | trim }}"
+          custom_fields:
+            serial_source: CHR system-id (virtual identifier)
+        status_code: 200
+      delegate_to: localhost
+      vars:
+        ansible_connection: local
+      no_log: true
+    - name: Save collected identifier
+      ansible.builtin.copy:
+        content: "{{ inventory_hostname }}: {{ identifier.stdout[0] | trim }} (CHR system-id)\n"
+        dest: "{{ playbook_dir }}/additional/evidence/{{ inventory_hostname }}-serial.txt"
+      delegate_to: localhost
+      vars:
+        ansible_connection: local

@@ -1,0 +1,9 @@
+.private/
+.env
+*.pem
+*.key
+*secrets*.json
+__pycache__/
+*.pyc
+vms/
+downloads/
